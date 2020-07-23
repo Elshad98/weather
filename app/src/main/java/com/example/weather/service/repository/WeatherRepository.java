@@ -1,5 +1,6 @@
 package com.example.weather.service.repository;
 
+import com.example.weather.service.model.Find;
 import com.example.weather.service.model.Weather;
 import com.example.weather.utils.Constants;
 
@@ -32,5 +33,9 @@ public class WeatherRepository {
 
     public Single<Weather> getCurrentWeather(int cityId, String apiKey) {
         return weatherApi.getCurrentWeather(cityId, apiKey);
+    }
+
+    public Single<Find> getWeatherByCityName(String cityName, String apiKey) {
+        return weatherApi.getWeatherByCityName(cityName, apiKey);
     }
 }

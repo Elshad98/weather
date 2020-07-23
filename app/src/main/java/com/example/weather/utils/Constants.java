@@ -5,7 +5,7 @@ public class Constants {
     /**
      * Base url for api call
      */
-    public static final String BASE_URL = "https://api.openweathermap.org/data/2.5";
+    public static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
     /**
      * API key required to send a request

@@ -9,10 +9,6 @@
         <variable
             name="weatherViewModel"
             type="com.example.weather.viewmodel.WeatherViewModel" />
-
-        <variable
-            name="weather"
-            type="com.example.weather.service.model.Weather" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,26 +27,40 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.12">
 
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@{weatherViewModel.weather.getWeather().get(0).getIcon()}" />
+
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{weather.getName()}"
+                android:text="@{weatherViewModel.weather.getName()}"
                 android:textSize="@dimen/project_text"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weatherViewModel.weather.getMain().getTemp() + @string/degrees_celsius}"
+                android:textSize="@dimen/project_text" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{weather.getWeather().get(0).getDescription()}"
+                android:text="@{weatherViewModel.weather.getWeather().get(0).getDescription()}"
                 android:textSize="@dimen/project_text" />
 
             <TextView
-                android:id="@+id/timezone"
+                android:id="@+id/feelsLike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(weather.getTimezone())}"
+                android:text="@{@string/feels_like + ` ` +  weatherViewModel.weather.getMain().getFeelsLike() + @string/degrees_celsius}"
                 android:textSize="@dimen/project_text" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

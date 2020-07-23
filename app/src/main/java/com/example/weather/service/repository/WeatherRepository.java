@@ -1,10 +1,5 @@
 package com.example.weather.service.repository;
 
-import android.util.Log;
-
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
 import com.example.weather.service.model.Weather;
 import com.example.weather.utils.Constants;
 
@@ -35,7 +30,7 @@ public class WeatherRepository {
         return weatherRepository;
     }
 
-    public Single<Weather> getCurrentWeather(int cityId, String apiKey, String lang) {
-        return weatherApi.getCurrentWeather(cityId, apiKey, lang);
+    public Single<Weather> getCurrentWeather(int cityId, String apiKey) {
+        return weatherApi.getCurrentWeather(cityId, apiKey);
     }
 }

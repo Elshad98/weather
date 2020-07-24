@@ -1,6 +1,5 @@
 package com.example.weather.view.adapter;
 
-import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;

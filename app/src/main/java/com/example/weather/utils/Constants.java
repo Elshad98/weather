@@ -17,4 +17,8 @@ public class Constants {
      */
     public static final String IMAGE_URL = "http://openweathermap.org/img/wn/%s@4x.png";
 
+    /**
+     * The name of the extra data
+     */
+    public static final String INTENT_CITY = "city";
 }

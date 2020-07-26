@@ -1,29 +1,35 @@
 package com.example.weather.data.repository;
 
+import android.util.Log;
+
 import com.example.weather.data.local.dao.CityDao;
 import com.example.weather.data.local.entity.CityEntity;
-import com.example.weather.data.remote.ServerCommunicator;
+import com.example.weather.data.remote.api.ApiService;
 import com.example.weather.data.remote.pojo.Weather;
 
 import java.util.List;
+
+import javax.inject.Singleton;
 
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+@Singleton
 public class CityRepository {
 
-    private ServerCommunicator serverCommunicator;
-    private CityDao database;
+    private ApiService apiService;
+    private CityDao cityDao;
 
-    public CityRepository() {
-        this.serverCommunicator = new ServerCommunicator();
+    public CityRepository(CityDao cityDao, ApiService apiService) {
+        this.apiService = apiService;
+        this.cityDao = cityDao;
     }
 
     public Single<Weather> getWeatherByCityName(String cityName, String apiKey) {
-        return serverCommunicator.getWeatherByCityName(cityName, apiKey)
+        return apiService.getWeatherByCityName(cityName, apiKey)
                 .flatMap(weather -> {
-                    database.insertCity(new CityEntity(weather.getId(), weather.getName()));
+                    cityDao.insertCity(new CityEntity(weather.getId(), weather.getName()));
                     return Single.just(weather);
                 })
                 .subscribeOn(Schedulers.io())
@@ -31,7 +37,8 @@ public class CityRepository {
     }
 
     public Single<List<CityEntity>> getAll() {
-        return database.getAll()
+        Log.d("TAG", "AAAAAAAAAAAAAAAAAAAA: " + apiService);
+        return cityDao.getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }

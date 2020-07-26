@@ -13,6 +13,7 @@ import io.reactivex.Single;
 
 @Dao
 public interface CityDao {
+
     @Query("SELECT * FROM cities")
     Single<List<CityEntity>> getAll();
 

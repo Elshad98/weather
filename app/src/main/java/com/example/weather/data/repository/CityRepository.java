@@ -37,7 +37,7 @@ public class CityRepository {
     }
 
     public Single<List<CityEntity>> getAll() {
-        Log.d("TAG", "AAAAAAAAAAAAAAAAAAAA: " + apiService);
+        Log.d("TAG", "apiService: " + apiService);
         return cityDao.getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());

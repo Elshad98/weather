@@ -17,15 +17,15 @@ import javax.inject.Inject;
 
 public class CityListViewModel extends BaseViewModel {
 
-    private static final String TAG = "CityListViewModel";
-
-    private CityRepository cityRepository;
-    private MutableLiveData<List<CityEntity>> cities = new MutableLiveData<>();
-
     @Inject
     public CityListViewModel(CityDao cityDao, ApiService apiService) {
         cityRepository = new CityRepository(cityDao, apiService);
     }
+
+    private static final String TAG = "CityListViewModel";
+
+    private CityRepository cityRepository;
+    private MutableLiveData<List<CityEntity>> cities = new MutableLiveData<>();
 
     @SuppressLint("CheckResult")
     public void loadCities() {

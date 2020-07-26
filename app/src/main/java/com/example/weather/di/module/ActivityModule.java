@@ -1,5 +1,6 @@
 package com.example.weather.di.module;
 
+import com.example.weather.ui.detail.activity.WeatherDetailActivity;
 import com.example.weather.ui.main.activity.MainActivity;
 
 import dagger.Module;

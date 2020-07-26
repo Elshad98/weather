@@ -19,6 +19,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {ApiModule.class, DbModule.class, ViewModelModule.class,
         AndroidSupportInjectionModule.class, ActivityModule.class, FragmentModule.class})
 public interface ApiComponent {
+
     @Component.Builder
     interface Builder {
         @BindsInstance
@@ -34,4 +35,5 @@ public interface ApiComponent {
     }
 
     void inject(App app);
+
 }

@@ -9,31 +9,31 @@ public class Weather {
 
     @SerializedName("coord")
     @Expose
-    private com.example.weather.service.model.Weather.Coord coord;
+    private Coord coord;
     @SerializedName("weather")
     @Expose
-    private List<com.example.weather.service.model.Weather.Weather_> weather = null;
+    private List<Weather_> weather = null;
     @SerializedName("base")
     @Expose
     private String base;
     @SerializedName("main")
     @Expose
-    private com.example.weather.service.model.Weather.Main main;
+    private Main main;
     @SerializedName("visibility")
     @Expose
     private int visibility;
     @SerializedName("wind")
     @Expose
-    private com.example.weather.service.model.Weather.Wind wind;
+    private Wind wind;
     @SerializedName("clouds")
     @Expose
-    private com.example.weather.service.model.Weather.Clouds clouds;
+    private Clouds clouds;
     @SerializedName("dt")
     @Expose
     private int dt;
     @SerializedName("sys")
     @Expose
-    private com.example.weather.service.model.Weather.Sys sys;
+    private Sys sys;
     @SerializedName("timezone")
     @Expose
     private int timezone;
@@ -47,19 +47,19 @@ public class Weather {
     @Expose
     private int cod;
 
-    public com.example.weather.service.model.Weather.Coord getCoord() {
+    public Coord getCoord() {
         return coord;
     }
 
-    public void setCoord(com.example.weather.service.model.Weather.Coord coord) {
+    public void setCoord(Coord coord) {
         this.coord = coord;
     }
 
-    public List<com.example.weather.service.model.Weather.Weather_> getWeather() {
+    public List<Weather_> getWeather() {
         return weather;
     }
 
-    public void setWeather(List<com.example.weather.service.model.Weather.Weather_> weather) {
+    public void setWeather(List<Weather_> weather) {
         this.weather = weather;
     }
 
@@ -71,11 +71,11 @@ public class Weather {
         this.base = base;
     }
 
-    public com.example.weather.service.model.Weather.Main getMain() {
+    public Main getMain() {
         return main;
     }
 
-    public void setMain(com.example.weather.service.model.Weather.Main main) {
+    public void setMain(Main main) {
         this.main = main;
     }
 
@@ -87,19 +87,19 @@ public class Weather {
         this.visibility = visibility;
     }
 
-    public com.example.weather.service.model.Weather.Wind getWind() {
+    public Wind getWind() {
         return wind;
     }
 
-    public void setWind(com.example.weather.service.model.Weather.Wind wind) {
+    public void setWind(Wind wind) {
         this.wind = wind;
     }
 
-    public com.example.weather.service.model.Weather.Clouds getClouds() {
+    public Clouds getClouds() {
         return clouds;
     }
 
-    public void setClouds(com.example.weather.service.model.Weather.Clouds clouds) {
+    public void setClouds(Clouds clouds) {
         this.clouds = clouds;
     }
 
@@ -111,11 +111,11 @@ public class Weather {
         this.dt = dt;
     }
 
-    public com.example.weather.service.model.Weather.Sys getSys() {
+    public Sys getSys() {
         return sys;
     }
 
-    public void setSys(com.example.weather.service.model.Weather.Sys sys) {
+    public void setSys(Sys sys) {
         this.sys = sys;
     }
 

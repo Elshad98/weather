@@ -1,6 +1,7 @@
 package com.example.weather.ui.main.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.weather.R;
@@ -22,11 +24,16 @@ import com.example.weather.ui.main.adapter.CitiesListAdapter;
 import com.example.weather.ui.main.viewmodel.CityListViewModel;
 import com.example.weather.utils.NavigationUtils;
 
+import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
 public class CityListFragment extends BaseFragment implements RecyclerItemClickListener.OnRecyclerViewItemClickListener {
+
     @Inject
     ViewModelFactory viewModelFactory;
 
@@ -35,20 +42,20 @@ public class CityListFragment extends BaseFragment implements RecyclerItemClickL
     private CitiesListFragmentBinding binding;
 
     @Override
-    public void onCreate(Bundle saveInstanceState) {
+    public void onCreate(@Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         initialiseViewModel();
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState) {
+    public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cities_list, container, false);
         return binding.getRoot();
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@Nullable View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initialiseView();
     }
@@ -73,7 +80,8 @@ public class CityListFragment extends BaseFragment implements RecyclerItemClickL
     }
 
     private void initialiseViewModel() {
-        cityListViewModel = new ViewModelProvider(this, viewModelFactory).get(CityListViewModel.class);
+        Log.d("TAG", String.valueOf(viewModelFactory == null));
+        cityListViewModel = new CityListViewModel();
 
         cityListViewModel.getCities().observe(this, resource -> {
             if (!resource.isEmpty()) {

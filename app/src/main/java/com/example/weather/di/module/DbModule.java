@@ -2,6 +2,7 @@ package com.example.weather.di.module;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.room.Room;
 
 import com.example.weather.data.local.AppDatabase;
@@ -17,15 +18,15 @@ public class DbModule {
 
     @Provides
     @Singleton
-    AppDatabase provideDatabase(Application application) {
-        return Room.databaseBuilder(application, AppDatabase.class, "database.db")
+    AppDatabase provideDatabase(@NonNull Application application) {
+        return Room.databaseBuilder(application, AppDatabase.class, "database")
                 .allowMainThreadQueries()
                 .build();
     }
 
     @Provides
     @Singleton
-    CityDao provideCityDao(AppDatabase appDatabase) {
+    CityDao provideCityDao(@NonNull AppDatabase appDatabase) {
         return appDatabase.cityDao();
     }
     

@@ -25,7 +25,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Cu
 
     @NonNull
     @Override
-    public CitiesListAdapter.CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CitiesListAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         CitiesListItemBinding itemBinding = CitiesListItemBinding.inflate(layoutInflater, parent, false);
         return new CustomViewHolder(itemBinding);
@@ -46,7 +46,7 @@ public class CitiesListAdapter extends RecyclerView.Adapter<CitiesListAdapter.Cu
         return cities.get(position);
     }
 
-    public void onBindViewHolder(CitiesListAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CitiesListAdapter.CustomViewHolder holder, int position) {
         holder.bindTo(getItem(position));
     }
 

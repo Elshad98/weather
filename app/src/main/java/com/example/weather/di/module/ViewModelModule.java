@@ -12,11 +12,13 @@ import dagger.multibindings.IntoMap;
 
 @Module
 public abstract class ViewModelModule {
+
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory(ViewModelFactory factory);
 
     @Binds
     @IntoMap
     @ViewModelKey(CityListViewModel.class)
-    abstract ViewModel cityListViewModule(CityListViewModel cityListViewModel);
+    protected abstract ViewModel cityListViewModule(CityListViewModel cityListViewModel);
+
 }

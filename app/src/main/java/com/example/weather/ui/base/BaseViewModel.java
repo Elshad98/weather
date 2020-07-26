@@ -9,7 +9,7 @@ public class BaseViewModel extends ViewModel {
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    protected final void addDisposable(Disposable disposable) {
+    protected void addDisposable(Disposable disposable) {
         disposables.remove(disposable);
         disposables.add(disposable);
     }

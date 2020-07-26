@@ -12,6 +12,9 @@ public class Constants {
      */
     public static final String API_KEY = "35eb36d6c29f1e2cc642273d12bc021a";
 
-
+    /**
+     * Image URL
+     */
+    public static final String IMAGE_URL = "http://openweathermap.org/img/wn/%s@4x.png";
 
 }

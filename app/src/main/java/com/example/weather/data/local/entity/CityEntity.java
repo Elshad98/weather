@@ -1,4 +1,4 @@
-package com.example.weather.repository.database.entity;
+package com.example.weather.data.local.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -15,13 +15,9 @@ public class CityEntity {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("country")
-    private String country;
-
-    public CityEntity(int id, String name, String country) {
+    public CityEntity(int id, String name) {
         this.id = id;
         this.name = name;
-        this.country = country;
     }
 
     public int getId() {
@@ -38,14 +34,6 @@ public class CityEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
 }

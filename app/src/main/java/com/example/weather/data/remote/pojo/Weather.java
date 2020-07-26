@@ -1,4 +1,4 @@
-package com.example.weather.repository.server.pojo;
+package com.example.weather.data.remote.pojo;
 
 import java.util.List;
 

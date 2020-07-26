@@ -1,7 +1,7 @@
-package com.example.weather.repository.server;
+package com.example.weather.data.remote;
 
-import com.example.weather.repository.server.pojo.Weather;
-import com.example.weather.service.repository.WeatherApi;
+import com.example.weather.data.remote.api.ApiService;
+import com.example.weather.data.remote.pojo.Weather;
 import com.example.weather.utils.Constants;
 
 import io.reactivex.Single;

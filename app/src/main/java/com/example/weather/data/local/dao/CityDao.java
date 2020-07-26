@@ -1,29 +1,28 @@
-package com.example.weather.repository.database.dao;
+package com.example.weather.data.local.dao;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.weather.repository.database.entity.CityEntity;
+import com.example.weather.data.local.entity.CityEntity;
 
 import java.util.List;
+
+import io.reactivex.Single;
 
 @Dao
 public interface CityDao {
     @Query("SELECT * FROM cities")
-    List<CityEntity> getAll();
+    Single<List<CityEntity>> getAll();
 
     @Query("SELECT * FROM cities WHERE id = :id")
-    CityEntity getById(int id);
+    Single<CityEntity> getById(int id);
 
     @Query("SELECT * FROM cities WHERE name = :name")
-    CityEntity getByName(String name);
+    Single<CityEntity> getByName(String name);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertCity(CityEntity cityEntity);
-
-    @Delete
-    void delete(CityEntity cityEntity);
+    
 }

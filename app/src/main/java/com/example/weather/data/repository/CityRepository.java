@@ -1,45 +1,36 @@
 package com.example.weather.data.repository;
 
-import android.util.Log;
+import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
+import com.example.weather.data.local.AppDatabase;
 import com.example.weather.data.local.dao.CityDao;
 import com.example.weather.data.local.entity.CityEntity;
-import com.example.weather.data.remote.api.ApiService;
-import com.example.weather.data.remote.pojo.Weather;
 
 import java.util.List;
 
-import javax.inject.Singleton;
-
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
-@Singleton
 public class CityRepository {
 
-    private ApiService apiService;
     private CityDao cityDao;
+    private LiveData<List<CityEntity>> cities;
 
-    public CityRepository(CityDao cityDao, ApiService apiService) {
-        this.apiService = apiService;
-        this.cityDao = cityDao;
+    public CityRepository(Application application) {
+        AppDatabase database = AppDatabase.getInstance(application);
+        cityDao = database.cityDao();
+        cities = cityDao.getAllCities();
     }
 
-    public Single<Weather> getWeatherByCityName(String cityName, String apiKey) {
-        return apiService.getWeatherByCityName(cityName, apiKey)
-                .flatMap(weather -> {
-                    cityDao.insertCity(new CityEntity(weather.getId(), weather.getName()));
-                    return Single.just(weather);
-                })
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+    public LiveData<List<CityEntity>> getAllCities() {
+        return cities;
     }
 
-    public Single<List<CityEntity>> getAll() {
-        Log.d("TAG", "apiService: " + apiService);
-        return cityDao.getAll()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+    public void deleteCity(CityEntity city) {
+        AppDatabase.databaseWriteExecutor.execute(() -> cityDao.deleteCity(city));
+    }
+
+    public void insertCity(CityEntity city) {
+        AppDatabase.databaseWriteExecutor.execute(() -> cityDao.insertCity(city));
     }
 }
+

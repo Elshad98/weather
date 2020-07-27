@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="degrees_celsius">°C</string>
-    <string name="feels_like">Ощущается как</string>
+    <string name="add">Добавить</string>
+    <string name="input_city_name">Введите название города</string>
 </resources>

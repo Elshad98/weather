@@ -5,14 +5,14 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Weather {
+public class CurrentWeather {
 
     @SerializedName("coord")
     @Expose
     private Coord coord;
     @SerializedName("weather")
     @Expose
-    private List<Weather_> weather = null;
+    private List<Weather> weather = null;
     @SerializedName("base")
     @Expose
     private String base;
@@ -55,11 +55,11 @@ public class Weather {
         this.coord = coord;
     }
 
-    public List<Weather_> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 
-    public void setWeather(List<Weather_> weather) {
+    public void setWeather(List<Weather> weather) {
         this.weather = weather;
     }
 
@@ -149,82 +149,6 @@ public class Weather {
 
     public void setCod(int cod) {
         this.cod = cod;
-    }
-
-    public class Weather_ {
-
-        @SerializedName("id")
-        @Expose
-        private int id;
-        @SerializedName("main")
-        @Expose
-        private String main;
-        @SerializedName("description")
-        @Expose
-        private String description;
-        @SerializedName("icon")
-        @Expose
-        private String icon;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getMain() {
-            return main;
-        }
-
-        public void setMain(String main) {
-            this.main = main;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public String getIcon() {
-            return icon;
-        }
-
-        public void setIcon(String icon) {
-            this.icon = icon;
-        }
-
-    }
-
-    public class Wind {
-
-        @SerializedName("speed")
-        @Expose
-        private int speed;
-        @SerializedName("deg")
-        @Expose
-        private int deg;
-
-        public int getSpeed() {
-            return speed;
-        }
-
-        public void setSpeed(int speed) {
-            this.speed = speed;
-        }
-
-        public int getDeg() {
-            return deg;
-        }
-
-        public void setDeg(int deg) {
-            this.deg = deg;
-        }
-
     }
 
     public class Clouds {
@@ -397,6 +321,82 @@ public class Weather {
 
         public void setSunset(int sunset) {
             this.sunset = sunset;
+        }
+
+    }
+
+    public class Weather {
+
+        @SerializedName("id")
+        @Expose
+        private int id;
+        @SerializedName("main")
+        @Expose
+        private String main;
+        @SerializedName("description")
+        @Expose
+        private String description;
+        @SerializedName("icon")
+        @Expose
+        private String icon;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getMain() {
+            return main;
+        }
+
+        public void setMain(String main) {
+            this.main = main;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getIcon() {
+            return icon;
+        }
+
+        public void setIcon(String icon) {
+            this.icon = icon;
+        }
+
+    }
+
+    public class Wind {
+
+        @SerializedName("speed")
+        @Expose
+        private int speed;
+        @SerializedName("deg")
+        @Expose
+        private int deg;
+
+        public int getSpeed() {
+            return speed;
+        }
+
+        public void setSpeed(int speed) {
+            this.speed = speed;
+        }
+
+        public int getDeg() {
+            return deg;
+        }
+
+        public void setDeg(int deg) {
+            this.deg = deg;
         }
 
     }

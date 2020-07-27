@@ -10,7 +10,7 @@ public class Constants {
     /**
      * API key required to send a request
      */
-    public static final String API_KEY = "35eb36d6c29f1e2cc642273d12bc021a";
+    public static final String API_KEY = "d5adfb78096a16fb7d0e5c85ee555092";
 
     /**
      * Image URL

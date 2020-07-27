@@ -1,42 +1,37 @@
 package com.example.weather.ui.main.viewmodel;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
+import android.app.Application;
 
-import androidx.lifecycle.MutableLiveData;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
-import com.example.weather.data.local.dao.CityDao;
 import com.example.weather.data.local.entity.CityEntity;
-import com.example.weather.data.remote.api.ApiService;
 import com.example.weather.data.repository.CityRepository;
-import com.example.weather.ui.base.BaseViewModel;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
-public class CityListViewModel extends BaseViewModel {
-
-    @Inject
-    public CityListViewModel(CityDao cityDao, ApiService apiService) {
-        cityRepository = new CityRepository(cityDao, apiService);
-    }
-
-    private static final String TAG = "CityListViewModel";
+public class CityListViewModel extends AndroidViewModel {
 
     private CityRepository cityRepository;
-    private MutableLiveData<List<CityEntity>> cities = new MutableLiveData<>();
 
-    @SuppressLint("CheckResult")
-    public void loadCities() {
-        cityRepository.getAll()
-                .doOnSubscribe(this::addDisposable)
-                .subscribe(cityEntities -> getCities().postValue(cityEntities),
-                        throwable -> Log.d(TAG, "An error happens"));
+    private LiveData<List<CityEntity>> cities;
+
+    public CityListViewModel(@NonNull Application application) {
+        super(application);
+        cityRepository = new CityRepository(application);
+        cities = cityRepository.getAllCities();
     }
 
-    public MutableLiveData<List<CityEntity>> getCities() {
+    public LiveData<List<CityEntity>> getCities() {
         return cities;
     }
 
+    public void deleteCity(CityEntity cityEntity) {
+        cityRepository.deleteCity(cityEntity);
+    }
+
+    public void insertCity(CityEntity cityEntity) {
+        cityRepository.insertCity(cityEntity);
+    }
 }

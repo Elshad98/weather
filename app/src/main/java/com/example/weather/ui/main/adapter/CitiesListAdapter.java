@@ -1,7 +1,5 @@
 package com.example.weather.ui.main.adapter;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,27 +11,22 @@ import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import com.example.weather.data.local.entity.CityEntity;
 import com.example.weather.databinding.CitiesListItemBinding;
-import com.example.weather.ui.base.OnItemClickListener;
 
 import java.util.List;
 
 public class CitiesListAdapter extends Adapter<CitiesListAdapter.CustomViewHolder> {
 
     private List<CityEntity> cities;
-
-    private LayoutInflater inflater;
     private OnItemClickListener listener;
 
-
-    public CitiesListAdapter(Context context, OnItemClickListener listener) {
-        inflater = LayoutInflater.from(context);
+    public CitiesListAdapter(OnItemClickListener listener) {
         this.listener = listener;
     }
 
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        inflater = LayoutInflater.from(parent.getContext());
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         CitiesListItemBinding itemBinding = CitiesListItemBinding.inflate(inflater, parent, false);
         return new CustomViewHolder(itemBinding, listener);
     }
@@ -42,7 +35,7 @@ public class CitiesListAdapter extends Adapter<CitiesListAdapter.CustomViewHolde
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         if (cities != null) {
             CityEntity current = cities.get(position);
-            holder.binding.textView.setText(current.getName());
+            holder.binding.tvCityName.setText(current.getName());
         }
     }
 
@@ -59,7 +52,7 @@ public class CitiesListAdapter extends Adapter<CitiesListAdapter.CustomViewHolde
         notifyDataSetChanged();
     }
 
-    static class CustomViewHolder extends ViewHolder implements View.OnClickListener {
+    protected static class CustomViewHolder extends ViewHolder implements View.OnClickListener {
         final CitiesListItemBinding binding;
         private OnItemClickListener listener;
 
@@ -68,6 +61,7 @@ public class CitiesListAdapter extends Adapter<CitiesListAdapter.CustomViewHolde
             this.binding = binding;
             this.listener = listener;
             this.binding.ivDelete.setOnClickListener(this);
+            this.binding.constraintLayout.setOnClickListener(this);
         }
 
         @Override
@@ -77,5 +71,9 @@ public class CitiesListAdapter extends Adapter<CitiesListAdapter.CustomViewHolde
                 listener.onItemClick(position, view);
             }
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position, View view);
     }
 }

@@ -21,4 +21,5 @@ public class Constants {
      * The name of the extra data
      */
     public static final String INTENT_CITY = "city";
+
 }

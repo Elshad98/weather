@@ -52,8 +52,6 @@ public abstract class AppDatabase extends RoomDatabase {
                 if (cityDao.getCity().isEmpty()) {
                     CityEntity cityEntity = new CityEntity("Пермь");
                     cityDao.insertCity(cityEntity);
-                    CityEntity city = new CityEntity("Москва");
-                    cityDao.insertCity(city);
                 }
             });
         }

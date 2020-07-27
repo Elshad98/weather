@@ -16,8 +16,9 @@ import com.example.weather.R;
 import com.example.weather.data.local.entity.CityEntity;
 import com.example.weather.databinding.MainActivityBinding;
 import com.example.weather.ui.city.activity.AddCityActivity;
+import com.example.weather.ui.detail.activity.WeatherDetailActivity;
+import com.example.weather.ui.main.adapter.CitiesListAdapter.OnItemClickListener;
 import com.example.weather.ui.main.adapter.CitiesListAdapter;
-import com.example.weather.ui.base.OnItemClickListener;
 import com.example.weather.ui.main.viewmodel.CityListViewModel;
 import com.example.weather.utils.Constants;
 
@@ -36,22 +37,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        initialiseViewModel();
+    }
 
+    private void initialiseViewModel() {
         RecyclerView recyclerView = binding.recyclerview;
-        CitiesListAdapter adapter = new CitiesListAdapter(this, this);
+        CitiesListAdapter adapter = new CitiesListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cityListViewModel = new ViewModelProvider(this).get(CityListViewModel.class);
-        cityListViewModel.getCities()
-                .observe(this, cities -> {
-                    cityEntityList = cities;
-                    adapter.setCities(cities);
-                });
 
+        cityListViewModel = new ViewModelProvider(this).get(CityListViewModel.class);
+        cityListViewModel.getCities().observe(this, cities -> {
+            cityEntityList = cities;
+            adapter.setCities(cities);
+        });
         binding.ivAdd.setOnClickListener(this);
     }
 
-    public void onClick(View v) {
+    public void onClick(View view) {
         Intent intent = new Intent(this, AddCityActivity.class);
         startActivityForResult(intent, REQUEST_CODE__ADD_CITY_ACTIVITY);
     }
@@ -61,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.ivDelete:
                 CityEntity cityEntity = cityEntityList.get(position);
                 cityListViewModel.deleteCity(cityEntity);
+                break;
+            case R.id.constraintLayout:
+                Intent intent = new Intent(this, WeatherDetailActivity.class);
+                intent.putExtra(Constants.INTENT_CITY, cityEntityList.get(position).getName());
+                startActivity(intent);
+                break;
         }
     }
 
@@ -72,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CityEntity city = new CityEntity(data.getStringExtra(Constants.INTENT_CITY));
             cityListViewModel.insertCity(city);
         } else {
-            Toast.makeText(this, "EMPTY", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.empty_city_name, Toast.LENGTH_SHORT).show();
         }
     }
 

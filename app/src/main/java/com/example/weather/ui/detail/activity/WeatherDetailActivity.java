@@ -33,10 +33,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         String cityName = intent.getStringExtra(Constants.INTENT_CITY);
         weatherDetailViewModel.getWeatherByCityName(cityName, Constants.API_KEY)
                 .subscribe(this::updateWeatherDetailView,
-                        (throwable) -> {
-                            binding.description.setText(throwable.getMessage());
-                            System.out.println(throwable);
-                        });
+                        (throwable) -> binding.description.setText(throwable.getMessage()));
     }
 
     private void updateWeatherDetailView(CurrentWeather currentWeather) {
@@ -48,6 +45,6 @@ public class WeatherDetailActivity extends AppCompatActivity {
         binding.name.setText(currentWeather.getName());
         binding.temp.setText(currentWeather.getMain().getTemp() + celsius);
         binding.description.setText(weather.getDescription());
-        binding.feelsLike.setText(res.getString(R.string.feels_like) + currentWeather.getMain().getFeelsLike() +  celsius);
+        binding.feelsLike.setText(res.getString(R.string.feels_like) + currentWeather.getMain().getFeelsLike() + celsius);
     }
 }

@@ -378,12 +378,12 @@ public class CurrentWeather {
 
         @SerializedName("speed")
         @Expose
-        private int speed;
+        private float speed;
         @SerializedName("deg")
         @Expose
         private int deg;
 
-        public int getSpeed() {
+        public float getSpeed() {
             return speed;
         }
 

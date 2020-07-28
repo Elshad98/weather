@@ -2,6 +2,7 @@ package com.example.weather.ui.detail.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -37,11 +38,13 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
     private void updateWeatherDetailView(CurrentWeather currentWeather) {
         CurrentWeather.Weather weather = currentWeather.getWeather().get(0);
+        Resources res = getResources();
+        String celsius = res.getString(R.string.celsius);
         String url = String.format(Constants.IMAGE_URL, weather.getIcon());
         Picasso.get().load(url).into(binding.icon);
         binding.name.setText(currentWeather.getName());
-        binding.temp.setText(currentWeather.getMain().getTemp() + "°C");
+        binding.temp.setText(currentWeather.getMain().getTemp() + celsius);
         binding.description.setText(weather.getDescription());
-        binding.feelsLike.setText("Ощущается как " + currentWeather.getMain().getFeelsLike() +  "°C");
+        binding.feelsLike.setText(res.getString(R.string.feels_like) + currentWeather.getMain().getFeelsLike() +  celsius);
     }
 }

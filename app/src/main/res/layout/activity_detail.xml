@@ -8,7 +8,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity">
+        tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity"
+        android:background="@color/colorPrimaryWhite">
 
         <LinearLayout
             android:layout_width="match_parent"

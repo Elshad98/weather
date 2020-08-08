@@ -40,6 +40,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
         String celsius = res.getString(R.string.celsius);
         Picasso.get().load(weather.getIcon()).into(binding.icon);
         binding.cityName.setText(currentWeather.getName());
+        binding.tempMax.setText("" + currentWeather.getMain().getTempMax());
+        binding.tempMin.setText("" + currentWeather.getMain().getTempMin());
         binding.temp.setText(currentWeather.getMain().getTemp() + celsius);
         binding.description.setText(weather.getDescription());
         binding.feelsLike.setText(res.getString(R.string.feels_like) + currentWeather.getMain().getFeelsLike() + celsius);

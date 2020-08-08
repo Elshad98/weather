@@ -8,8 +8,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity"
-        android:background="@color/colorBlue">
+        android:background="@color/colorBlue"
+        tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity">
 
         <ImageView
             android:id="@+id/icon"
@@ -18,10 +18,10 @@
             android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.282"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.178" />
+            app:layout_constraintVertical_bias="0.189" />
 
         <TextView
             android:id="@+id/cityName"
@@ -74,6 +74,53 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temp" />
+
+        <ImageView
+            android:id="@+id/arrowTop"
+            android:layout_width="22dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/arrowDown"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:srcCompat="@drawable/arrow_top_icon" />
+
+        <ImageView
+            android:id="@+id/arrowDown"
+            android:layout_width="22dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="52dp"
+            app:layout_constraintBottom_toBottomOf="@+id/icon"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:srcCompat="@drawable/arrow_down_icon" />
+
+        <TextView
+            android:id="@+id/tempMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/tempMin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.135"
+            app:layout_constraintStart_toEndOf="@+id/arrowTop" />
+
+        <TextView
+            android:id="@+id/tempMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="52dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/arrowDown" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

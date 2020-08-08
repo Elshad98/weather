@@ -18,7 +18,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="1dp"
             android:layout_marginBottom="9dp"
-            android:background="@color/colorGrey">
+            android:background="@color/colorPrimaryWhite">
 
             <TextView
                 android:id="@+id/tvCityName"
@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text=""
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"

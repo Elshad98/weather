@@ -1,7 +1,8 @@
-package com.example.weather.data.remote.pojo;
+package com.example.weather.data.remote.model;
 
 import java.util.List;
 
+import com.example.weather.utils.Constants;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -340,6 +341,17 @@ public class CurrentWeather {
         @Expose
         private String icon;
 
+        public String getDescription() {
+            if (icon == null || icon.isEmpty()) {
+                return "";
+            }
+            return description.substring(0, 1).toUpperCase() + description.substring(1);
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
         public int getId() {
             return id;
         }
@@ -356,16 +368,11 @@ public class CurrentWeather {
             this.main = main;
         }
 
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
         public String getIcon() {
-            return icon;
+            if (icon == null || icon.isEmpty()) {
+                return "";
+            }
+            return String.format(Constants.IMAGE_URL, icon);
         }
 
         public void setIcon(String icon) {

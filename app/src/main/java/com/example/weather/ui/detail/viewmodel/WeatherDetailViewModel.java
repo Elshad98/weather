@@ -4,7 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 
-import com.example.weather.data.remote.pojo.CurrentWeather;
+import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.data.repository.WeatherRepository;
 
 import io.reactivex.Single;

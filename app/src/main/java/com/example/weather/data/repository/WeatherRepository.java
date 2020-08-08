@@ -1,7 +1,7 @@
 package com.example.weather.data.repository;
 
 import com.example.weather.data.remote.api.ApiService;
-import com.example.weather.data.remote.pojo.CurrentWeather;
+import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.utils.Constants;
 
 import io.reactivex.Single;

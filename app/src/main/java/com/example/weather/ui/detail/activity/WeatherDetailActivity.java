@@ -25,8 +25,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
     @SuppressLint("CheckResult")
     @Override
-    protected void onCreate(Bundle saveInstanceState) {
-        super.onCreate(saveInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
         weatherDetailViewModel = new ViewModelProvider(this).get(WeatherDetailViewModel.class);
 

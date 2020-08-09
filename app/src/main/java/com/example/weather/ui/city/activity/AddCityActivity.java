@@ -18,8 +18,8 @@ public class AddCityActivity extends AppCompatActivity {
     private AddCityActivityBinding binding;
 
     @Override
-    protected void onCreate(Bundle saveInstanceState) {
-        super.onCreate(saveInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_city);
         binding.btnAdd.setOnClickListener(this::onClick);
     }

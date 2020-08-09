@@ -39,7 +39,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
     private void onSuccess(CurrentWeather currentWeather) {
         CurrentWeather.Weather weather = currentWeather.getWeather().get(0);
         Picasso.get().load(weather.getIcon()).into(binding.icon);
-        binding.cityName.setText(currentWeather.getName());
+        binding.cityName.setText(currentWeather.getFullName());
         binding.tempMax.setText(Formatter.temperatureFormat(currentWeather.getMain().getTempMax()));
         binding.tempMin.setText(Formatter.temperatureFormat(currentWeather.getMain().getTempMin()));
         binding.temp.setText(Formatter.temperatureFormat(currentWeather.getMain().getTemp()));
@@ -50,6 +50,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         binding.pressure.setText(Formatter.pressureFormat(currentWeather.getMain().getPressure()));
         binding.visibility.setText(Formatter.visibilityFormat(currentWeather.getVisibility()));
         binding.horizontalScroll.setVisibility(View.VISIBLE);
+        binding.location.setVisibility(View.VISIBLE);
         binding.arrowDown.setVisibility(View.VISIBLE);
         binding.arrowTop.setVisibility(View.VISIBLE);
     }

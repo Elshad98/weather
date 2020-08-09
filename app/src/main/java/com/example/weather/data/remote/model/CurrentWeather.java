@@ -84,6 +84,10 @@ public class CurrentWeather {
         return visibility;
     }
 
+    public String getFullName() {
+        return name + ", " + getSys().country;
+    }
+
     public void setVisibility(int visibility) {
         this.visibility = visibility;
     }

@@ -12,6 +12,18 @@
         tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity">
 
         <ImageView
+            android:visibility="invisible"
+            android:id="@+id/location"
+            android:layout_width="25dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/cityName"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cityName"
+            app:srcCompat="@drawable/location_icon" />
+
+        <ImageView
             android:id="@+id/icon"
             android:layout_width="160dp"
             android:layout_height="160dp"
@@ -27,7 +39,6 @@
             android:id="@+id/cityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/icon"
@@ -35,13 +46,13 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.826" />
+            app:layout_constraintVertical_bias="0.817" />
 
         <TextView
             android:id="@+id/temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +64,7 @@
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:text=""
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,13 +98,12 @@
             android:id="@+id/tempMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
             android:paddingBottom="3dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/tempMin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.135"
             app:layout_constraintStart_toEndOf="@+id/arrowTop" />
 
         <TextView
@@ -112,12 +122,12 @@
 
         <HorizontalScrollView
             android:id="@+id/horizontalScroll"
-            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="148dp"
             android:scrollbars="none"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

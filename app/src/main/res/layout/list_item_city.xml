@@ -7,25 +7,25 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp">
+        android:layout_height="95dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="99dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginBottom="9dp"
-            android:background="@color/colorPrimaryWhite">
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="21dp"
+            android:background="@drawable/round_border">
 
             <TextView
                 android:id="@+id/tvCityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text=""
+                android:text="Gthvm"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -37,10 +37,10 @@
                 android:id="@+id/ivDelete"
                 android:layout_width="44dp"
                 android:layout_height="41dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.972"
+                app:layout_constraintHorizontal_bias="0.94"
                 app:layout_constraintStart_toEndOf="@+id/tvCityName"
                 app:srcCompat="@drawable/trash_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>

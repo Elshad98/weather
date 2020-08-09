@@ -4,5 +4,10 @@
     <string name="input_city_name">Введите название города</string>
     <string name="empty_city_name">Вы не ввели название города</string>
     <string name="celsius">°C</string>
-    <string name="feels_like">Ощущается как:</string>
+    <string name="degree">°</string>
+    <string name="feels_like">Feels like</string>
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="visibility">Visibility</string>
 </resources>

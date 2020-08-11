@@ -2,7 +2,6 @@ package com.example.weather.ui.detail.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +14,11 @@ import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.databinding.DetailActivityBinding;
 import com.example.weather.ui.detail.viewmodel.WeatherDetailViewModel;
 import com.example.weather.utils.Constants;
-import com.example.weather.utils.Formatter;
+import com.example.weather.utils.HumidityFormatter;
+import com.example.weather.utils.PressureFormatter;
+import com.example.weather.utils.TemperatureFormatter;
+import com.example.weather.utils.VisibilityFormatter;
+import com.example.weather.utils.WindFormatter;
 import com.squareup.picasso.Picasso;
 
 public class WeatherDetailActivity extends AppCompatActivity {
@@ -40,15 +43,15 @@ public class WeatherDetailActivity extends AppCompatActivity {
         CurrentWeather.Weather weather = currentWeather.getWeather().get(0);
         Picasso.get().load(weather.getIcon()).into(binding.icon);
         binding.cityName.setText(currentWeather.getFullName());
-        binding.tempMax.setText(Formatter.temperatureFormat(currentWeather.getMain().getTempMax()));
-        binding.tempMin.setText(Formatter.temperatureFormat(currentWeather.getMain().getTempMin()));
-        binding.temp.setText(Formatter.temperatureFormat(currentWeather.getMain().getTemp()));
+        binding.tempMax.setText(TemperatureFormatter.format(currentWeather.getMain().getTempMax()));
+        binding.tempMin.setText(TemperatureFormatter.format(currentWeather.getMain().getTempMin()));
+        binding.temp.setText(TemperatureFormatter.format(currentWeather.getMain().getTemp()));
         binding.description.setText(weather.getDescription());
-        binding.feelsLike.setText(Formatter.temperatureFormat(currentWeather.getMain().getFeelsLike()));
-        binding.humidity.setText(Formatter.humidityFormat(currentWeather.getMain().getHumidity()));
-        binding.wind.setText(Formatter.windFormat(currentWeather.getWind().getSpeed()));
-        binding.pressure.setText(Formatter.pressureFormat(currentWeather.getMain().getPressure()));
-        binding.visibility.setText(Formatter.visibilityFormat(currentWeather.getVisibility()));
+        binding.feelsLike.setText(TemperatureFormatter.format(currentWeather.getMain().getFeelsLike()));
+        binding.humidity.setText(HumidityFormatter.format(currentWeather.getMain().getHumidity()));
+        binding.wind.setText(WindFormatter.format(currentWeather.getWind().getSpeed()));
+        binding.pressure.setText(PressureFormatter.format(currentWeather.getMain().getPressure()));
+        binding.visibility.setText(VisibilityFormatter.format(currentWeather.getVisibility()));
         binding.horizontalScroll.setVisibility(View.VISIBLE);
         binding.location.setVisibility(View.VISIBLE);
         binding.arrowDown.setVisibility(View.VISIBLE);

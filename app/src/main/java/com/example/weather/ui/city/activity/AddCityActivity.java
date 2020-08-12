@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import com.example.weather.R;
 import com.example.weather.databinding.AddCityActivityBinding;
 import com.example.weather.utils.Constants;
+import com.example.weather.utils.ToastUtil;
 
 public class AddCityActivity extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class AddCityActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(cityName)) {
             setResult(RESULT_OK, new Intent().putExtra(Constants.INTENT_CITY, cityName));
             finish();
+        } else {
+            ToastUtil.showShort(this, R.string.input_city_name);
         }
     }
 }

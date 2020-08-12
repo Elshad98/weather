@@ -21,6 +21,7 @@ import com.example.weather.ui.main.adapter.CitiesListAdapter.OnItemClickListener
 import com.example.weather.ui.main.adapter.CitiesListAdapter;
 import com.example.weather.ui.main.viewmodel.CityListViewModel;
 import com.example.weather.utils.Constants;
+import com.example.weather.utils.ToastUtil;
 
 import java.util.List;
 
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CityEntity city = new CityEntity(data.getStringExtra(Constants.INTENT_CITY));
             cityListViewModel.insertCity(city);
         } else {
-            Toast.makeText(this, R.string.empty_city_name, Toast.LENGTH_SHORT).show();
+            ToastUtil.showLong(this, R.string.empty_city_name);
         }
     }
 

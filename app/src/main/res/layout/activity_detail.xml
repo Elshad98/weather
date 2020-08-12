@@ -84,12 +84,12 @@
             app:srcCompat="@drawable/arrow_top_icon" />
 
         <ImageView
-            android:visibility="invisible"
             android:id="@+id/arrowDown"
             android:layout_width="22dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginBottom="42dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
             app:layout_constraintStart_toEndOf="@+id/icon"
             app:srcCompat="@drawable/arrow_down_icon" />
@@ -111,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginBottom="42dp"
             android:paddingBottom="3dp"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"

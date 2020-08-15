@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/location"
-            android:layout_width="25dp"
-            android:layout_height="34dp"
+            android:layout_width="@dimen/location_icon_width"
+            android:layout_height="@dimen/location_icon_height"
             android:layout_marginEnd="8dp"
             android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/cityName"
@@ -25,8 +25,8 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="@dimen/weather_icon_width"
+            android:layout_height="@dimen/weather_icon_height"
             android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textSize="@dimen/title_text_size"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/icon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,10 +54,10 @@
             android:id="@+id/temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="@dimen/detail_text_margin_top"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="40sp"
+            android:textSize="@dimen/temperature_text"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -68,10 +68,9 @@
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="@dimen/detail_text_margin_top"
             android:fontFamily="@font/roboto_regular"
-            android:text=""
-            android:textSize="20sp"
+            android:textSize="@dimen/weather_description_text"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -80,8 +79,8 @@
 
         <ImageView
             android:id="@+id/arrowTop"
-            android:layout_width="22dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/arrow_icon_width"
+            android:layout_height="@dimen/arrow_icon_height"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="12dp"
             android:visibility="invisible"
@@ -91,8 +90,8 @@
 
         <ImageView
             android:id="@+id/arrowDown"
-            android:layout_width="22dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/arrow_icon_width"
+            android:layout_height="@dimen/arrow_icon_height"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="42dp"
             android:visibility="invisible"
@@ -109,7 +108,7 @@
             android:fontFamily="@font/roboto_regular"
             android:paddingBottom="3dp"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="@dimen/weather_detail_text_size"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/tempMin"
             app:layout_constraintStart_toEndOf="@+id/arrowTop" />
@@ -123,7 +122,7 @@
             android:fontFamily="@font/roboto_regular"
             android:paddingBottom="3dp"
             android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
+            android:textSize="@dimen/weather_detail_text_size"
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
             app:layout_constraintEnd_toEndOf="parent"
@@ -150,9 +149,9 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="75dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_width="@dimen/item_weather_layout_width"
+                    android:layout_height="@dimen/item_weather_layout_height"
+                    android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
@@ -170,14 +169,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/weather_detail_text_size"
                         android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="75dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_width="@dimen/item_weather_layout_width"
+                    android:layout_height="@dimen/item_weather_layout_height"
+                    android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
@@ -195,14 +194,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/weather_detail_text_size"
                         android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="75dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_width="@dimen/item_weather_layout_width"
+                    android:layout_height="@dimen/item_weather_layout_height"
+                    android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
@@ -220,14 +219,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/weather_detail_text_size"
                         android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="75dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_width="@dimen/item_weather_layout_width"
+                    android:layout_height="@dimen/item_weather_layout_height"
+                    android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
@@ -245,14 +244,14 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/weather_detail_text_size"
                         android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="75dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_width="@dimen/item_weather_layout_width"
+                    android:layout_height="@dimen/item_weather_layout_height"
+                    android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
@@ -270,7 +269,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/weather_detail_text_size"
                         android:textStyle="normal" />
                 </LinearLayout>
             </LinearLayout>

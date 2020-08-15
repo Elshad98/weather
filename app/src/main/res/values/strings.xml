@@ -2,6 +2,7 @@
     <string name="app_name">Weather</string>
     <string name="add">Add</string>
     <string name="input_city_name">Enter the name of the city</string>
+    <string name="enter_city_name">Enter City Name</string>
     <string name="empty_city_name">City not saved because it is empty</string>
     <string name="celsius">°C</string>
     <string name="degree">°</string>

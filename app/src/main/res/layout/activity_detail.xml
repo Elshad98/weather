@@ -12,11 +12,11 @@
         tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity">
 
         <ImageView
-            android:visibility="invisible"
             android:id="@+id/location"
             android:layout_width="25dp"
             android:layout_height="34dp"
             android:layout_marginEnd="8dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/cityName"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +39,10 @@
             android:id="@+id/cityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -53,8 +55,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:fontFamily="@font/roboto_regular"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="40sp"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,20 +69,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:fontFamily="@font/roboto_regular"
             android:text=""
             android:textSize="20sp"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/icon" />
 
         <ImageView
-            android:visibility="invisible"
             android:id="@+id/arrowTop"
             android:layout_width="22dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="12dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/arrowDown"
             app:layout_constraintStart_toEndOf="@+id/icon"
             app:srcCompat="@drawable/arrow_top_icon" />
@@ -100,9 +106,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/roboto_regular"
             android:paddingBottom="3dp"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@+id/tempMin"
             app:layout_constraintStart_toEndOf="@+id/arrowTop" />
 
@@ -112,9 +120,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="42dp"
+            android:fontFamily="@font/roboto_regular"
             android:paddingBottom="3dp"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -142,110 +152,126 @@
                 <LinearLayout
                     android:layout_width="110dp"
                     android:layout_height="75dp"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:text="@string/wind"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/wind"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Wind"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="110dp"
                     android:layout_height="75dp"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:text="@string/feels_like"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/feelsLike"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="110dp"
                     android:layout_height="75dp"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:text="@string/humidity"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/humidity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/feels_like"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="110dp"
                     android:layout_height="75dp"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:text="@string/pressure"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/pressure"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/pressure"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="110dp"
                     android:layout_height="75dp"
-                    android:layout_marginRight="12dp"
+                    android:layout_marginEnd="12dp"
                     android:background="@drawable/round_border"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:text="@string/visibility"
-                        android:textColor="@color/colorPrimary" />
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/visibility"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/pressure"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="normal" />
                 </LinearLayout>
             </LinearLayout>
         </HorizontalScrollView>

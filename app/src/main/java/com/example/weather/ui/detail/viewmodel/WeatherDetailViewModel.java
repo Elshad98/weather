@@ -2,14 +2,13 @@ package com.example.weather.ui.detail.viewmodel;
 
 import android.app.Application;
 
-import androidx.lifecycle.AndroidViewModel;
-
 import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.data.repository.WeatherRepository;
+import com.example.weather.ui.base.BaseViewModel;
 
 import io.reactivex.Single;
 
-public class WeatherDetailViewModel extends AndroidViewModel {
+public class WeatherDetailViewModel extends BaseViewModel {
 
     private WeatherRepository weatherRepository;
 
@@ -19,6 +18,7 @@ public class WeatherDetailViewModel extends AndroidViewModel {
     }
 
     public Single<CurrentWeather> getWeatherByCityName(String cityName, String apiKey) {
-        return weatherRepository.getWeatherByCityName(cityName, apiKey);
+        return weatherRepository.getWeatherByCityName(cityName, apiKey)
+                .doOnSubscribe(this::addToDisposable);
     }
 }

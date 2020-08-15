@@ -1,6 +1,5 @@
 package com.example.weather.data.local.dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -11,10 +10,12 @@ import com.example.weather.data.local.entity.CityEntity;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 @Dao
 public interface CityDao {
     @Query("SELECT * from cities")
-    LiveData<List<CityEntity>> getAllCities();
+    Flowable<List<CityEntity>> getAllCities();
 
     @Query("SELECT * FROM cities WHERE id = :id")
     List<CityEntity> getById(int id);

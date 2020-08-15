@@ -21,7 +21,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;
 
-    private static final int NUMBER_OF_THREADS = 3;
+    private static final int NUMBER_OF_THREADS = 4;
 
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -38,8 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     private static AppDatabase buildDatabase(Context context) {
-        return Room.databaseBuilder(context, AppDatabase.class, "database")
-                .allowMainThreadQueries()
+        return Room.databaseBuilder(context, AppDatabase.class, "word_database")
                 .addCallback(roomDatabaseCallback)
                 .build();
     }
@@ -47,10 +46,11 @@ public abstract class AppDatabase extends RoomDatabase {
     private static RoomDatabase.Callback roomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
             databaseWriteExecutor.execute(() -> {
                 CityDao cityDao = INSTANCE.cityDao();
                 if (cityDao.getCity().isEmpty()) {
-                    CityEntity cityEntity = new CityEntity("Пермь");
+                    CityEntity cityEntity = new CityEntity("Perm");
                     cityDao.insertCity(cityEntity);
                 }
             });

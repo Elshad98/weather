@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,11 +27,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnItemClickListener {
 
     private MainActivityBinding binding;
+    private CitiesListAdapter adapter;
 
     CityListViewModel cityListViewModel;
     List<CityEntity> cityEntityList;
 
-    public static final int REQUEST_CODE__ADD_CITY_ACTIVITY = 1;
+    public static final int REQUEST_CODE_ADD_CITY_ACTIVITY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +41,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initialiseViewModel();
     }
 
+    @SuppressLint("CheckResult")
     private void initialiseViewModel() {
         RecyclerView recyclerView = binding.recyclerview;
-        CitiesListAdapter adapter = new CitiesListAdapter(this);
+        adapter = new CitiesListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         cityListViewModel = new ViewModelProvider(this).get(CityListViewModel.class);
-        cityListViewModel.getCities().observe(this, cities -> {
-            cityEntityList = cities;
-            adapter.setCities(cities);
-        });
+        cityListViewModel.getCities().subscribe(this::onSuccess, this::onError);
         binding.ivAdd.setOnClickListener(this);
+    }
+
+    private void onSuccess(List<CityEntity> cities) {
+        cityEntityList = cities;
+        adapter.setCities(cities);
+    }
+
+    private void onError(Throwable throwable) {
+        ToastUtil.showLong(this, "Error");
     }
 
     public void onClick(View view) {
         Intent intent = new Intent(this, AddCityActivity.class);
-        startActivityForResult(intent, REQUEST_CODE__ADD_CITY_ACTIVITY);
+        startActivityForResult(intent, REQUEST_CODE_ADD_CITY_ACTIVITY);
     }
 
     public void onItemClick(int position, View view) {
@@ -76,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE__ADD_CITY_ACTIVITY) {
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_ADD_CITY_ACTIVITY) {
             CityEntity city = new CityEntity(data.getStringExtra(BuildConfig.INTENT_CITY));
             cityListViewModel.insertCity(city);
         } else {

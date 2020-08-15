@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.databinding.DetailActivityBinding;
 import com.example.weather.ui.detail.viewmodel.WeatherDetailViewModel;
-import com.example.weather.utils.Constants;
 import com.example.weather.utils.HumidityFormatter;
 import com.example.weather.utils.PressureFormatter;
 import com.example.weather.utils.TemperatureFormatter;
@@ -34,8 +34,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
         weatherDetailViewModel = new ViewModelProvider(this).get(WeatherDetailViewModel.class);
 
         Intent intent = getIntent();
-        String cityName = intent.getStringExtra(Constants.INTENT_CITY);
-        weatherDetailViewModel.getWeatherByCityName(cityName, Constants.API_KEY)
+        String cityName = intent.getStringExtra(BuildConfig.INTENT_CITY);
+        weatherDetailViewModel.getWeatherByCityName(cityName, BuildConfig.API_KEY)
                 .subscribe(this::onSuccess, this::onError);
     }
 

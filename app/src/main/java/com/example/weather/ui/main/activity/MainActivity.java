@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.data.local.entity.CityEntity;
 import com.example.weather.databinding.MainActivityBinding;
@@ -18,7 +19,6 @@ import com.example.weather.ui.detail.activity.WeatherDetailActivity;
 import com.example.weather.ui.main.adapter.CitiesListAdapter.OnItemClickListener;
 import com.example.weather.ui.main.adapter.CitiesListAdapter;
 import com.example.weather.ui.main.viewmodel.CityListViewModel;
-import com.example.weather.utils.Constants;
 import com.example.weather.utils.ToastUtil;
 
 import java.util.List;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.constraintLayout:
                 Intent intent = new Intent(this, WeatherDetailActivity.class);
-                intent.putExtra(Constants.INTENT_CITY, cityEntityList.get(position).getName());
+                intent.putExtra(BuildConfig.INTENT_CITY, cityEntityList.get(position).getName());
                 startActivity(intent);
                 break;
         }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE__ADD_CITY_ACTIVITY) {
-            CityEntity city = new CityEntity(data.getStringExtra(Constants.INTENT_CITY));
+            CityEntity city = new CityEntity(data.getStringExtra(BuildConfig.INTENT_CITY));
             cityListViewModel.insertCity(city);
         } else {
             ToastUtil.showLong(this, R.string.empty_city_name);

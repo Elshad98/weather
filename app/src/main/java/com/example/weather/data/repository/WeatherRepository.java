@@ -1,8 +1,8 @@
 package com.example.weather.data.repository;
 
+import com.example.weather.BuildConfig;
 import com.example.weather.data.remote.api.ApiService;
 import com.example.weather.data.remote.model.CurrentWeather;
-import com.example.weather.utils.Constants;
 
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -17,7 +17,7 @@ public class WeatherRepository {
 
     public WeatherRepository() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
+                .baseUrl(BuildConfig.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

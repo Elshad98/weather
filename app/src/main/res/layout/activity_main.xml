@@ -31,11 +31,11 @@
             android:layout_height="@dimen/plus_icon_height"
             android:layout_marginEnd="22dp"
             android:layout_marginBottom="28dp"
+            android:src="@drawable/plus_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/plus_icon" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

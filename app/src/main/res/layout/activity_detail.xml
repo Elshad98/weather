@@ -16,12 +16,12 @@
             android:layout_width="@dimen/location_icon_width"
             android:layout_height="@dimen/location_icon_height"
             android:layout_marginEnd="8dp"
+            android:src="@drawable/location_icon"
             android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/cityName"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cityName"
-            app:srcCompat="@drawable/location_icon" />
+            app:layout_constraintTop_toTopOf="@+id/cityName" />
 
         <ImageView
             android:id="@+id/icon"
@@ -83,10 +83,10 @@
             android:layout_height="@dimen/arrow_icon_height"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="12dp"
+            android:src="@drawable/arrow_top_icon"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/arrowDown"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            app:srcCompat="@drawable/arrow_top_icon" />
+            app:layout_constraintStart_toEndOf="@+id/icon" />
 
         <ImageView
             android:id="@+id/arrowDown"
@@ -94,10 +94,10 @@
             android:layout_height="@dimen/arrow_icon_height"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="42dp"
+            android:src="@drawable/arrow_down_icon"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            app:srcCompat="@drawable/arrow_down_icon" />
+            app:layout_constraintStart_toEndOf="@+id/icon" />
 
         <TextView
             android:id="@+id/tempMax"

@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorBlue">
 
-
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"

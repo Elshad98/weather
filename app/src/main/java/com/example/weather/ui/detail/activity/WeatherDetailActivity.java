@@ -14,6 +14,7 @@ import com.example.weather.R;
 import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.databinding.DetailActivityBinding;
 import com.example.weather.ui.detail.viewmodel.WeatherDetailViewModel;
+import com.example.weather.utils.DateFormatter;
 import com.example.weather.utils.HumidityFormatter;
 import com.example.weather.utils.PressureFormatter;
 import com.example.weather.utils.TemperatureFormatter;
@@ -52,6 +53,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
         binding.wind.setText(WindFormatter.format(currentWeather.getWind().getSpeed()));
         binding.pressure.setText(PressureFormatter.format(currentWeather.getMain().getPressure()));
         binding.visibility.setText(VisibilityFormatter.format(currentWeather.getVisibility()));
+        binding.date.setText(DateFormatter.format(currentWeather.getDt()));
         binding.horizontalScroll.setVisibility(View.VISIBLE);
         binding.location.setVisibility(View.VISIBLE);
         binding.arrowDown.setVisibility(View.VISIBLE);

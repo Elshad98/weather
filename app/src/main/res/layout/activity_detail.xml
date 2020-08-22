@@ -33,7 +33,7 @@
             app:layout_constraintHorizontal_bias="0.294"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.218" />
+            app:layout_constraintVertical_bias="0.315" />
 
         <TextView
             android:id="@+id/cityName"
@@ -43,12 +43,26 @@
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/title_text_size"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/icon"
+            app:layout_constraintBottom_toTopOf="@+id/date"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.817" />
+            app:layout_constraintVertical_bias="0.645" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/weather_detail_text_size"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/temp"
@@ -59,10 +73,12 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/temperature_text"
             android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/horizontalScroll"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/description"
@@ -134,15 +150,13 @@
             android:layout_width="match_parent"
             android:layout_height="76dp"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="148dp"
+            android:layout_marginBottom="88dp"
             android:scrollbars="none"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:layout_width="wrap_content"

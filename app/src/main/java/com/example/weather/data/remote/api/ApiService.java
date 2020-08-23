@@ -15,7 +15,5 @@ public interface ApiService {
     @GET("weather?units=metric")
     Single<CurrentWeather> getWeatherByCityName(@Query("q") String cityName,
                                                 @Query("appid") String apiKey);
-
-
 }
 

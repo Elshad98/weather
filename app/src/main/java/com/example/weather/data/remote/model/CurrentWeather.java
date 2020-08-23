@@ -169,7 +169,6 @@ public class CurrentWeather {
         public void setAll(int all) {
             this.all = all;
         }
-
     }
 
     public class Coord {
@@ -196,7 +195,6 @@ public class CurrentWeather {
         public void setLat(float lat) {
             this.lat = lat;
         }
-
     }
 
     public class Main {
@@ -267,7 +265,6 @@ public class CurrentWeather {
         public void setHumidity(int humidity) {
             this.humidity = humidity;
         }
-
     }
 
     public class Sys {
@@ -327,7 +324,6 @@ public class CurrentWeather {
         public void setSunset(int sunset) {
             this.sunset = sunset;
         }
-
     }
 
     public class Weather {
@@ -382,7 +378,6 @@ public class CurrentWeather {
         public void setIcon(String icon) {
             this.icon = icon;
         }
-
     }
 
     public class Wind {
@@ -409,7 +404,5 @@ public class CurrentWeather {
         public void setDeg(int deg) {
             this.deg = deg;
         }
-
     }
-
 }

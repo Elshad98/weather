@@ -14,7 +14,7 @@ public class WeatherDetailViewModel extends BaseViewModel {
 
     public WeatherDetailViewModel(Application application) {
         super(application);
-        weatherRepository= new WeatherRepository();
+        weatherRepository = new WeatherRepository();
     }
 
     public Single<CurrentWeather> getWeatherByCityName(String cityName, String apiKey) {

@@ -22,5 +22,4 @@ public class CityEntity {
     public String getName() {
         return name;
     }
-
 }

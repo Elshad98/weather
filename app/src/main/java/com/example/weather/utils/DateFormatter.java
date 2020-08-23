@@ -11,5 +11,4 @@ public class DateFormatter {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM h:mm a", Locale.US);
         return dateFormat.format(date);
     }
-
 }

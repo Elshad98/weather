@@ -1,4 +1,8 @@
 apply plugin: 'com.android.application'
+apply from: "${project.rootDir}/gradle-script/checkstyle.gradle"
+
+preBuild.dependsOn('checkstyleDefault')
+check.dependsOn('checkstyleDefault')
 
 android {
     compileSdkVersion 29

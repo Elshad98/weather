@@ -92,5 +92,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ToastUtil.showLong(this, R.string.empty_city_name);
         }
     }
-
 }

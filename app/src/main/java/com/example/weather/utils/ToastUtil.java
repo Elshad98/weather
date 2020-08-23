@@ -20,5 +20,4 @@ public class ToastUtil {
     public static void showLong(Context context, int resId) {
         Toast.makeText(context, resId, Toast.LENGTH_LONG).show();
     }
-
 }

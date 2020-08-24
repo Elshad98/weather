@@ -2,14 +2,14 @@ ext {
 	vGson = '2.8.6'
 	vRxJava2 = '2.2.10'
 	vRoom = '1.1.1'
-	vPicasso = 2.71828
+	vPicasso = '2.71828'
 	vRxAndroid2 = '2.1.1'
 	vRetrofit2 = '2.6.0'
 	vAndroidxAppCompat = '1.2.0'
 	vAndroidxConstraintLayout = '1.1.3'
 	vAndroidxRecyclerView = '1.1.0'
 	vAndroidxNavigation = '2.3.0'
-	vJunit = 4.12
+	vJunit = '4.12'
 	vAndroidxJunit = '1.1.1'
 	vAndroidxEspresso = '3.2.0'
 	vCheckstylePlugin = '8.4'

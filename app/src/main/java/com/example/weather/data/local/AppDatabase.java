@@ -22,6 +22,7 @@ public abstract class AppDatabase extends RoomDatabase {
     private static volatile AppDatabase INSTANCE;
 
     private static final int NUMBER_OF_THREADS = 4;
+    private static final String DATABASE_NAME = "city_database";
 
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -38,7 +39,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
     private static AppDatabase buildDatabase(Context context) {
-        return Room.databaseBuilder(context, AppDatabase.class, "word_database")
+        return Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
                 .addCallback(roomDatabaseCallback)
                 .build();
     }

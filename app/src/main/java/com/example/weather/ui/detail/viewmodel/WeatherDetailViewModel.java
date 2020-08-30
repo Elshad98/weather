@@ -1,10 +1,10 @@
 package com.example.weather.ui.detail.viewmodel;
 
-import android.app.Application;
-
 import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.data.repository.WeatherRepository;
 import com.example.weather.ui.base.BaseViewModel;
+
+import javax.inject.Inject;
 
 import io.reactivex.Single;
 
@@ -12,9 +12,9 @@ public class WeatherDetailViewModel extends BaseViewModel {
 
     private WeatherRepository weatherRepository;
 
-    public WeatherDetailViewModel(Application application) {
-        super(application);
-        weatherRepository = new WeatherRepository();
+    @Inject
+    public WeatherDetailViewModel(WeatherRepository weatherRepository) {
+        this.weatherRepository = weatherRepository;
     }
 
     public Single<CurrentWeather> getWeatherByCityName(String cityName, String apiKey) {

@@ -30,7 +30,7 @@ public class AddCityActivity extends AppCompatActivity {
             setResult(RESULT_OK, new Intent().putExtra(BuildConfig.INTENT_CITY, cityName));
             finish();
         } else {
-            ToastUtil.showShort(this, R.string.input_city_name);
+            ToastUtil.showShort(R.string.input_city_name);
         }
     }
 }

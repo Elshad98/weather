@@ -1,23 +1,24 @@
 package com.example.weather.utils;
 
-import android.content.Context;
 import android.widget.Toast;
+
+import com.example.weather.App;
 
 public class ToastUtil {
 
-    public static void showShort(Context context, String message) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    public static void showShort(String message) {
+        Toast.makeText(App.instance(), message, Toast.LENGTH_SHORT).show();
     }
 
-    public static void showLong(Context context, String message) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+    public static void showLong(String message) {
+        Toast.makeText(App.instance(), message, Toast.LENGTH_LONG).show();
     }
 
-    public static void showShort(Context context, int resId) {
-        Toast.makeText(context, resId, Toast.LENGTH_SHORT).show();
+    public static void showShort(int resId) {
+        Toast.makeText(App.instance(), resId, Toast.LENGTH_SHORT).show();
     }
 
-    public static void showLong(Context context, int resId) {
-        Toast.makeText(context, resId, Toast.LENGTH_LONG).show();
+    public static void showLong(int resId) {
+        Toast.makeText(App.instance(), resId, Toast.LENGTH_LONG).show();
     }
 }

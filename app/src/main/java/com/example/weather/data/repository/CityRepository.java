@@ -1,12 +1,13 @@
 package com.example.weather.data.repository;
 
-import android.app.Application;
-
+import com.example.weather.App;
 import com.example.weather.data.local.AppDatabase;
 import com.example.weather.data.local.dao.CityDao;
 import com.example.weather.data.local.entity.CityEntity;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -16,8 +17,9 @@ public class CityRepository {
 
     private CityDao cityDao;
 
-    public CityRepository(Application application) {
-        AppDatabase database = AppDatabase.getInstance(application);
+    @Inject
+    public CityRepository() {
+        AppDatabase database = AppDatabase.getInstance(App.instance());
         cityDao = database.cityDao();
     }
 

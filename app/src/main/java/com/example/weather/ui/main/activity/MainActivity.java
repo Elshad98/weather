@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.weather.App;
 import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.data.local.entity.CityEntity;
@@ -24,13 +25,18 @@ import com.example.weather.utils.ToastUtil;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import toothpick.Toothpick;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnItemClickListener {
 
     private MainActivityBinding binding;
     private CitiesListAdapter adapter;
+    private List<CityEntity> cityEntityList;
 
+    @Inject
     CityListViewModel cityListViewModel;
-    List<CityEntity> cityEntityList;
 
     public static final int REQUEST_CODE_ADD_CITY_ACTIVITY = 1;
 
@@ -48,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        cityListViewModel = new ViewModelProvider(this).get(CityListViewModel.class);
+        Toothpick.inject(this, App.scope());
         cityListViewModel.getCities().subscribe(this::onSuccess, this::onError);
         binding.ivAdd.setOnClickListener(this);
     }
@@ -59,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onError(Throwable throwable) {
-        ToastUtil.showLong(this, "Error");
+        ToastUtil.showLong("Error: " + throwable.getMessage());
     }
 
     public void onClick(View view) {
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivityForResult(intent, REQUEST_CODE_ADD_CITY_ACTIVITY);
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onItemClick(int position, View view) {
         switch (view.getId()) {
             case R.id.ivDelete:
@@ -89,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             CityEntity city = new CityEntity(data.getStringExtra(BuildConfig.INTENT_CITY));
             cityListViewModel.insertCity(city);
         } else {
-            ToastUtil.showLong(this, R.string.empty_city_name);
+            ToastUtil.showLong(R.string.empty_city_name);
         }
     }
 }

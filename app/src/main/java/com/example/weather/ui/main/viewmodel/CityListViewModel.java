@@ -1,14 +1,12 @@
 package com.example.weather.ui.main.viewmodel;
 
-import android.app.Application;
-
-import androidx.annotation.NonNull;
-
 import com.example.weather.data.local.entity.CityEntity;
 import com.example.weather.data.repository.CityRepository;
 import com.example.weather.ui.base.BaseViewModel;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.Flowable;
 
@@ -16,9 +14,9 @@ public class CityListViewModel extends BaseViewModel {
 
     private CityRepository cityRepository;
 
-    public CityListViewModel(@NonNull Application application) {
-        super(application);
-        cityRepository = new CityRepository(application);
+    @Inject
+    public CityListViewModel(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
     }
 
     public Flowable<List<CityEntity>> getCities() {

@@ -4,6 +4,9 @@ import com.example.weather.BuildConfig;
 import com.example.weather.data.remote.api.ApiService;
 import com.example.weather.data.remote.model.CurrentWeather;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -15,6 +18,7 @@ public class WeatherRepository {
 
     private ApiService apiService;
 
+    @Inject
     public WeatherRepository() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.BASE_URL)

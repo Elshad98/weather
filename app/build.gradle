@@ -64,4 +64,8 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$vRoom"
     // Picasso
     implementation "com.squareup.picasso:picasso:$vPicasso"
+    // Toothpick
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$vToothpick"
+    implementation "com.github.stephanenicolas.toothpick:smoothie-androidx:$vToothpick"
+    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:$vToothpick"
 }

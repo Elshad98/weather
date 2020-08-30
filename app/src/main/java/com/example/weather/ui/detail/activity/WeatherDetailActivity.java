@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.weather.App;
 import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.data.remote.model.CurrentWeather;
@@ -22,9 +23,15 @@ import com.example.weather.utils.VisibilityFormatter;
 import com.example.weather.utils.WindFormatter;
 import com.squareup.picasso.Picasso;
 
+import javax.inject.Inject;
+
+import toothpick.Toothpick;
+
 public class WeatherDetailActivity extends AppCompatActivity {
 
     private DetailActivityBinding binding;
+
+    @Inject
     WeatherDetailViewModel weatherDetailViewModel;
 
     @SuppressLint("CheckResult")
@@ -32,7 +39,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
-        weatherDetailViewModel = new ViewModelProvider(this).get(WeatherDetailViewModel.class);
+
+        Toothpick.inject(this, App.scope());
 
         Intent intent = getIntent();
         String cityName = intent.getStringExtra(BuildConfig.INTENT_CITY);

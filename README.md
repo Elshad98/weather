@@ -1,9 +1,5 @@
 # Weather
 
-<img src="screenshots/logo.png" width="144" style="max-width:100%;"/>
-
-## Description
-
 A weather application for Android what uses the Open Weather API. Get the current weather for a particular location
 
 ## Application architecture

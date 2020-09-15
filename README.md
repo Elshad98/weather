@@ -7,7 +7,7 @@ Based on MVVM architecture and repository pattern
 
 <img src="screenshots/4.png" width="500" style="max-width:100%; margin-right:10px"/>
 
-## Application spec
+## Application specs
 - Minimum SDK 23
 - [Java8](https://java.com/en/download/faq/java8.xml)
 - MVVM Architecture

@@ -7,10 +7,14 @@ Based on MVVM architecture and repository pattern
 
 <img src="screenshots/4.png" width="500" style="max-width:100%; margin-right:10px"/>
 
+## Application spec
+- Minimum SDK 23
+- [Java8](https://java.com/en/download/faq/java8.xml)
+- MVVM Architecture
 
 ## Dependencies
 
-- [Retrofit](https://square.github.io/retrofit "Retrofit")
+- [Retrofit](https://github.com/square/retrofit "Retrofit")
 - [Gson](https://github.com/google/gson "Gson")
 - [RxJava](https://github.com/ReactiveX/RxJava "RxJava")
 - [Toothpick](https://github.com/stephanenicolas/toothpick "Toothpick")

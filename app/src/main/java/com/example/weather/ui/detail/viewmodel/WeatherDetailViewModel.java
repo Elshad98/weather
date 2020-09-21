@@ -7,6 +7,8 @@ import com.example.weather.ui.base.BaseViewModel;
 import javax.inject.Inject;
 
 import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class WeatherDetailViewModel extends BaseViewModel {
 
@@ -17,8 +19,10 @@ public class WeatherDetailViewModel extends BaseViewModel {
         this.weatherRepository = weatherRepository;
     }
 
-    public Single<CurrentWeather> getWeatherByCityName(String cityName, String apiKey) {
-        return weatherRepository.getWeatherByCityName(cityName, apiKey)
-                .doOnSubscribe(this::addToDisposable);
+    public Single<CurrentWeather> getWeatherByCityName(String cityName) {
+        return weatherRepository.getWeatherByCityName(cityName)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe(this::addToDisposable);
     }
 }

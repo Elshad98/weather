@@ -8,9 +8,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.databinding.AddCityActivityBinding;
+import com.example.weather.ui.main.activity.MainActivity;
 import com.example.weather.utils.ToastUtil;
 
 public class AddCityActivity extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class AddCityActivity extends AppCompatActivity {
     public void onClick(View view) {
         String cityName = binding.etCityName.getText().toString().trim();
         if (!TextUtils.isEmpty(cityName)) {
-            setResult(RESULT_OK, new Intent().putExtra(BuildConfig.INTENT_CITY, cityName));
+            setResult(RESULT_OK, new Intent().putExtra(MainActivity.EXTRA_CITY, cityName));
             finish();
         } else {
             ToastUtil.showShort(R.string.input_city_name);

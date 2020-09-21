@@ -1,20 +1,17 @@
 package com.example.weather.ui.detail.activity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.weather.App;
-import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.databinding.DetailActivityBinding;
 import com.example.weather.ui.detail.viewmodel.WeatherDetailViewModel;
+import com.example.weather.ui.main.activity.MainActivity;
 import com.example.weather.utils.DateFormatter;
 import com.example.weather.utils.HumidityFormatter;
 import com.example.weather.utils.PressureFormatter;
@@ -34,7 +31,6 @@ public class WeatherDetailActivity extends AppCompatActivity {
     @Inject
     WeatherDetailViewModel weatherDetailViewModel;
 
-    @SuppressLint("CheckResult")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +38,8 @@ public class WeatherDetailActivity extends AppCompatActivity {
 
         Toothpick.inject(this, App.scope());
 
-        Intent intent = getIntent();
-        String cityName = intent.getStringExtra(BuildConfig.INTENT_CITY);
-        weatherDetailViewModel.getWeatherByCityName(cityName, BuildConfig.API_KEY)
+        String cityName = getIntent().getStringExtra(MainActivity.EXTRA_CITY);
+        weatherDetailViewModel.getWeatherByCityName(cityName)
                 .subscribe(this::onSuccess, this::onError);
     }
 

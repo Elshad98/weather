@@ -10,8 +10,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public class CityRepository {
 
@@ -24,9 +22,7 @@ public class CityRepository {
     }
 
     public Flowable<List<CityEntity>> getAllCities() {
-        return cityDao.getAllCities()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+        return cityDao.getAllCities();
     }
 
     public void deleteCity(CityEntity city) {

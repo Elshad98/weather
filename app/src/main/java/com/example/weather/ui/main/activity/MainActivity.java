@@ -1,25 +1,22 @@
 package com.example.weather.ui.main.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.weather.App;
-import com.example.weather.BuildConfig;
 import com.example.weather.R;
 import com.example.weather.data.local.entity.CityEntity;
 import com.example.weather.databinding.MainActivityBinding;
 import com.example.weather.ui.city.activity.AddCityActivity;
 import com.example.weather.ui.detail.activity.WeatherDetailActivity;
-import com.example.weather.ui.main.adapter.CitiesListAdapter.OnItemClickListener;
 import com.example.weather.ui.main.adapter.CitiesListAdapter;
+import com.example.weather.ui.main.adapter.CitiesListAdapter.OnItemClickListener;
 import com.example.weather.ui.main.viewmodel.CityListViewModel;
 import com.example.weather.utils.ToastUtil;
 
@@ -30,6 +27,8 @@ import javax.inject.Inject;
 import toothpick.Toothpick;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnItemClickListener {
+
+    public static final String EXTRA_CITY = "city";
 
     private MainActivityBinding binding;
     private CitiesListAdapter adapter;
@@ -44,18 +43,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        Toothpick.inject(this, App.scope());
         initialiseViewModel();
     }
 
-    @SuppressLint("CheckResult")
     private void initialiseViewModel() {
         RecyclerView recyclerView = binding.recyclerview;
         adapter = new CitiesListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Toothpick.inject(this, App.scope());
-        cityListViewModel.getCities().subscribe(this::onSuccess, this::onError);
+        cityListViewModel.getCities()
+                .subscribe(this::onSuccess, this::onError);
         binding.ivAdd.setOnClickListener(this);
     }
 
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivityForResult(intent, REQUEST_CODE_ADD_CITY_ACTIVITY);
     }
 
-    @SuppressLint("NonConstantResourceId")
     public void onItemClick(int position, View view) {
         switch (view.getId()) {
             case R.id.ivDelete:
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.constraintLayout:
                 Intent intent = new Intent(this, WeatherDetailActivity.class);
-                intent.putExtra(BuildConfig.INTENT_CITY, cityEntityList.get(position).getName());
+                intent.putExtra(EXTRA_CITY, cityEntityList.get(position).getName());
                 startActivity(intent);
                 break;
         }
@@ -93,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_ADD_CITY_ACTIVITY) {
-            CityEntity city = new CityEntity(data.getStringExtra(BuildConfig.INTENT_CITY));
+            CityEntity city = new CityEntity(data.getStringExtra(EXTRA_CITY));
             cityListViewModel.insertCity(city);
         } else {
             ToastUtil.showLong(R.string.empty_city_name);

@@ -1,10 +1,10 @@
 package com.example.weather.data.remote.model;
 
-import java.util.List;
-
-import com.example.weather.BuildConfig;
+import com.example.weather.data.remote.api.ApiWeatherClient;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class CurrentWeather {
 
@@ -372,7 +372,7 @@ public class CurrentWeather {
             if (icon == null || icon.isEmpty()) {
                 return "";
             }
-            return String.format(BuildConfig.IMAGE_URL, icon);
+            return String.format(ApiWeatherClient.IMAGE_URL, icon);
         }
 
         public void setIcon(String icon) {

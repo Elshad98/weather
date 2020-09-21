@@ -9,6 +9,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class CityListViewModel extends BaseViewModel {
 
@@ -20,7 +22,9 @@ public class CityListViewModel extends BaseViewModel {
     }
 
     public Flowable<List<CityEntity>> getCities() {
-        return cityRepository.getAllCities();
+        return cityRepository.getAllCities()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     public void deleteCity(CityEntity cityEntity) {

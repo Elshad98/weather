@@ -16,11 +16,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "String", "IMAGE_URL", "\"http://openweathermap.org/img/wn/%s@4x.png\""
-        buildConfigField "String", "BASE_URL", "\"https://api.openweathermap.org/data/2.5/\""
-        buildConfigField "String", "API_KEY", "\"6cbf06dd7b501ba9387c6a99a826aae6\""
-        buildConfigField "String", "INTENT_CITY", "\"city\""
     }
 
     buildTypes {

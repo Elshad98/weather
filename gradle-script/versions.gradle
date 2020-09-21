@@ -6,7 +6,7 @@ ext {
     // Android
     vAndroidCompileSdk = 29
     vAndroidBuildTools = '29.0.3'
-    vAndroidminSdk = 23
+    vAndroidMinSdk = 23
     vAndroidTargetSdk = 29
 
     // Libs

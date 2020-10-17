@@ -3,13 +3,13 @@ package com.example.weather.ui.detail.activity;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.weather.App;
 import com.example.weather.R;
 import com.example.weather.data.remote.model.CurrentWeather;
 import com.example.weather.databinding.DetailActivityBinding;
+import com.example.weather.ui.base.BaseActivity;
 import com.example.weather.ui.detail.viewmodel.WeatherDetailViewModel;
 import com.example.weather.ui.main.activity.MainActivity;
 import com.example.weather.utils.DateFormatter;
@@ -20,26 +20,19 @@ import com.example.weather.utils.VisibilityFormatter;
 import com.example.weather.utils.WindFormatter;
 import com.squareup.picasso.Picasso;
 
-import javax.inject.Inject;
-
-import toothpick.Toothpick;
-
-public class WeatherDetailActivity extends AppCompatActivity {
+public class WeatherDetailActivity extends BaseActivity {
 
     private DetailActivityBinding binding;
-
-    @Inject
-    WeatherDetailViewModel weatherDetailViewModel;
+    private WeatherDetailViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
-        Toothpick.inject(this, App.scope());
-
         String cityName = getIntent().getStringExtra(MainActivity.EXTRA_CITY);
-        weatherDetailViewModel.getWeatherByCityName(cityName)
+        viewModel = viewModel(WeatherDetailViewModel.class, App.scope());
+        viewModel.getWeatherByCityName(cityName)
                 .subscribe(this::onSuccess, this::onError);
     }
 

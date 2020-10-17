@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.weather.R;
 import com.example.weather.databinding.AddCityActivityBinding;
+import com.example.weather.ui.base.BaseActivity;
 import com.example.weather.ui.main.activity.MainActivity;
 import com.example.weather.utils.ToastUtil;
 
-public class AddCityActivity extends AppCompatActivity {
+public class AddCityActivity extends BaseActivity {
 
     private AddCityActivityBinding binding;
 

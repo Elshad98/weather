@@ -6,6 +6,12 @@
     <string name="empty_city_name">City not saved because it is empty</string>
     <string name="celsius">°C</string>
     <string name="degree">°</string>
+    <string name="plus_icon">Plus</string>
+    <string name="delete_icon">Delete</string>
+    <string name="location_icon">Location</string>
+    <string name="weather_icon">Weather</string>
+    <string name="arrow_top_icon">Arrow top</string>
+    <string name="arrow_down_icon">Arrow down</string>
     <string name="feels_like">Feels like</string>
     <string name="wind">Wind</string>
     <string name="humidity">Humidity</string>

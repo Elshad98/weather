@@ -46,7 +46,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
-                app:layout_constraintStart_toEndOf="@+id/tvCityName" />
+                app:layout_constraintStart_toEndOf="@+id/tvCityName"
+                android:contentDescription="@string/delete_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </layout>

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorBlue"
-        tools:context="com.example.weather.ui.detail.activity.WeatherDetailActivity">
+        tools:context=".ui.detail.activity.WeatherDetailActivity">
 
         <ImageView
             android:id="@+id/location"
@@ -21,7 +21,8 @@
             app:layout_constraintEnd_toStartOf="@+id/cityName"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cityName" />
+            app:layout_constraintTop_toTopOf="@+id/cityName"
+            android:contentDescription="@string/location_icon" />
 
         <ImageView
             android:id="@+id/icon"
@@ -33,7 +34,8 @@
             app:layout_constraintHorizontal_bias="0.294"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.315" />
+            app:layout_constraintVertical_bias="0.315"
+            android:contentDescription="@string/weather_icon" />
 
         <TextView
             android:id="@+id/cityName"
@@ -102,7 +104,8 @@
             android:src="@drawable/arrow_top_icon"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/arrowDown"
-            app:layout_constraintStart_toEndOf="@+id/icon" />
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            android:contentDescription="@string/arrow_top_icon" />
 
         <ImageView
             android:id="@+id/arrowDown"
@@ -113,7 +116,8 @@
             android:src="@drawable/arrow_down_icon"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
-            app:layout_constraintStart_toEndOf="@+id/icon" />
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            android:contentDescription="@string/arrow_down_icon" />
 
         <TextView
             android:id="@+id/tempMax"

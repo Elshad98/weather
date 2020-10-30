@@ -4,7 +4,10 @@ import com.example.weather.data.remote.api.ApiWeatherClient;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CurrentWeather {
 
@@ -80,8 +83,8 @@ public class CurrentWeather {
         this.main = main;
     }
 
-    public int getVisibility() {
-        return visibility;
+    public String getVisibility() {
+        return (double) (visibility / 1000) + " km";
     }
 
     public String getFullName() {
@@ -108,8 +111,10 @@ public class CurrentWeather {
         this.clouds = clouds;
     }
 
-    public int getDt() {
-        return dt;
+    public String getDt() {
+        Date date = new Date(dt * 1000L);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM h:mm a", Locale.US);
+        return dateFormat.format(date);
     }
 
     public void setDt(int dt) {
@@ -218,48 +223,48 @@ public class CurrentWeather {
         @Expose
         private int humidity;
 
-        public float getTemp() {
-            return temp;
+        public String getTemp() {
+            return Math.round(temp) + "°";
         }
 
         public void setTemp(float temp) {
             this.temp = temp;
         }
 
-        public float getFeelsLike() {
-            return feelsLike;
+        public String getFeelsLike() {
+            return Math.round(feelsLike) + "°";
         }
 
         public void setFeelsLike(float feelsLike) {
             this.feelsLike = feelsLike;
         }
 
-        public float getTempMin() {
-            return tempMin;
+        public String getTempMin() {
+            return Math.round(tempMin) + "°";
         }
 
         public void setTempMin(float tempMin) {
             this.tempMin = tempMin;
         }
 
-        public float getTempMax() {
-            return tempMax;
+        public String getTempMax() {
+            return Math.round(tempMax) + "°";
         }
 
         public void setTempMax(float tempMax) {
             this.tempMax = tempMax;
         }
 
-        public int getPressure() {
-            return pressure;
+        public String getPressure() {
+            return pressure + " hPa";
         }
 
         public void setPressure(int pressure) {
             this.pressure = pressure;
         }
 
-        public int getHumidity() {
-            return humidity;
+        public String getHumidity() {
+            return humidity + "%";
         }
 
         public void setHumidity(int humidity) {
@@ -389,8 +394,8 @@ public class CurrentWeather {
         @Expose
         private int deg;
 
-        public float getSpeed() {
-            return speed;
+        public String getSpeed() {
+            return "N " + Math.round(speed) + " mph";
         }
 
         public void setSpeed(int speed) {

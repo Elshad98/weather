@@ -15,14 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiWeatherClient {
 
     private static final long TIMEOUT = 60;
+    private static final String API_KEY = "6cbf06dd7b501ba9387c6a99a826aae6";
+    private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
     @Inject
     public ApiWeatherClient() {
     }
-
-    private static final String API_KEY = "6cbf06dd7b501ba9387c6a99a826aae6";
-    private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
-    public static final String IMAGE_URL = "http://openweathermap.org/img/wn/%s@4x.png";
 
     public ApiWeather getClient() {
         Interceptor requestInterceptor = chain -> {

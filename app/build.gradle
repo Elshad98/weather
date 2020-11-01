@@ -10,6 +10,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "ICON_URL", "\"http://openweathermap.org/img/wn/%s@4x.png\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

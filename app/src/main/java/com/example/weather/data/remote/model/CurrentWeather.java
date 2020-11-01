@@ -1,6 +1,5 @@
 package com.example.weather.data.remote.model;
 
-import com.example.weather.data.remote.api.ApiWeatherClient;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import static com.example.weather.BuildConfig.ICON_URL;
 
 public class CurrentWeather {
 
@@ -377,7 +378,7 @@ public class CurrentWeather {
             if (icon == null || icon.isEmpty()) {
                 return "";
             }
-            return String.format(ApiWeatherClient.IMAGE_URL, icon);
+            return String.format(ICON_URL, icon);
         }
 
         public void setIcon(String icon) {

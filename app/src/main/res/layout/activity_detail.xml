@@ -11,31 +11,57 @@
         android:background="@color/colorBlue"
         tools:context=".ui.detail.activity.WeatherDetailActivity">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:indeterminateTint="@color/colorPurple"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/network_state_title_text_size"
+            android:textStyle="normal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/location"
             android:layout_width="@dimen/location_icon_width"
             android:layout_height="@dimen/location_icon_height"
             android:layout_marginEnd="8dp"
+            android:contentDescription="@string/location_icon"
             android:src="@drawable/location_icon"
             android:visibility="invisible"
             app:layout_constraintEnd_toStartOf="@+id/cityName"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cityName"
-            android:contentDescription="@string/location_icon" />
+            app:layout_constraintTop_toTopOf="@+id/cityName" />
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="@dimen/weather_icon_width"
             android:layout_height="@dimen/weather_icon_height"
             android:layout_gravity="center"
+            android:contentDescription="@string/weather_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.294"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.315"
-            android:contentDescription="@string/weather_icon" />
+            app:layout_constraintVertical_bias="0.315" />
 
         <TextView
             android:id="@+id/cityName"
@@ -101,11 +127,11 @@
             android:layout_height="@dimen/arrow_icon_height"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="12dp"
+            android:contentDescription="@string/arrow_top_icon"
             android:src="@drawable/arrow_top_icon"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/arrowDown"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            android:contentDescription="@string/arrow_top_icon" />
+            app:layout_constraintStart_toEndOf="@+id/icon" />
 
         <ImageView
             android:id="@+id/arrowDown"
@@ -113,11 +139,11 @@
             android:layout_height="@dimen/arrow_icon_height"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="42dp"
+            android:contentDescription="@string/arrow_down_icon"
             android:src="@drawable/arrow_down_icon"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/icon"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            android:contentDescription="@string/arrow_down_icon" />
+            app:layout_constraintStart_toEndOf="@+id/icon" />
 
         <TextView
             android:id="@+id/tempMax"

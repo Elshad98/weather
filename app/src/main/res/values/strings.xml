@@ -17,4 +17,5 @@
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>
     <string name="visibility">Visibility</string>
+    <string name="connection_problem">Connection Problem</string>
 </resources>

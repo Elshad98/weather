@@ -1,17 +1,11 @@
 package com.example.weather.data.repository;
 
-enum Status {
-    RUNNING,
-    SUCCESS,
-    FAILED
-}
-
 public class NetworkState {
 
     private final Status status;
     private final String message;
 
-    public NetworkState(Status status, String message) {
+    private NetworkState(Status status, String message) {
         this.status = status;
         this.message = message;
     }

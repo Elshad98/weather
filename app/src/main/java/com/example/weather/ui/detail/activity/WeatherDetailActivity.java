@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import com.example.weather.App;
 import com.example.weather.R;
 import com.example.weather.data.remote.model.CurrentWeather;
+import com.example.weather.data.repository.NetworkState;
 import com.example.weather.databinding.DetailActivityBinding;
 import com.example.weather.ui.base.BaseActivity;
 import com.example.weather.ui.detail.viewmodel.WeatherDetailViewModel;
@@ -26,8 +27,11 @@ public class WeatherDetailActivity extends BaseActivity {
 
         String cityName = getIntent().getStringExtra(MainActivity.EXTRA_CITY);
         viewModel = viewModel(WeatherDetailViewModel.class, App.scope());
-        viewModel.getWeatherByCityName(cityName)
-                .subscribe(this::onSuccess, this::onError);
+        viewModel.getCurrentWeather(cityName).observe(this, this::onSuccess);
+        viewModel.getNetworkState().observe(this, networkState -> {
+            binding.progressBar.setVisibility(networkState == NetworkState.LOADING ? View.VISIBLE : View.GONE);
+            binding.errorMessage.setVisibility(networkState == NetworkState.ERROR ? View.VISIBLE : View.GONE);
+        });
     }
 
     private void onSuccess(CurrentWeather currentWeather) {
@@ -48,9 +52,5 @@ public class WeatherDetailActivity extends BaseActivity {
         binding.arrowTop.setVisibility(View.VISIBLE);
         binding.arrowDown.setVisibility(View.VISIBLE);
         binding.horizontalScroll.setVisibility(View.VISIBLE);
-    }
-
-    private void onError(Throwable throwable) {
-        binding.description.setText(throwable.getMessage());
     }
 }

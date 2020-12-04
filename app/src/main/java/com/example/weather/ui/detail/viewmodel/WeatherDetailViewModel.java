@@ -1,28 +1,37 @@
 package com.example.weather.ui.detail.viewmodel;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.weather.data.remote.model.CurrentWeather;
+import com.example.weather.data.repository.NetworkState;
 import com.example.weather.data.repository.WeatherRepository;
 import com.example.weather.ui.base.BaseViewModel;
 
 import javax.inject.Inject;
 
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class WeatherDetailViewModel extends BaseViewModel {
 
-    private WeatherRepository weatherRepository;
+    private final WeatherRepository weatherRepository;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Inject
     public WeatherDetailViewModel(WeatherRepository weatherRepository) {
         this.weatherRepository = weatherRepository;
     }
 
-    public Single<CurrentWeather> getWeatherByCityName(String cityName) {
-        return weatherRepository.getWeatherByCityName(cityName)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe(this::addToDisposable);
+    public LiveData<CurrentWeather> getCurrentWeather(String cityName) {
+        return weatherRepository.fetchSingleMovieDetails(compositeDisposable, cityName);
+    }
+
+    public LiveData<NetworkState> getNetworkState() {
+        return weatherRepository.getNetworkState();
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        compositeDisposable.dispose();
     }
 }

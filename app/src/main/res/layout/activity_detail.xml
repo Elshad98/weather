@@ -31,6 +31,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/network_state_title_text_size"
             android:textStyle="normal"
+            android:text="@string/connection_problem"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

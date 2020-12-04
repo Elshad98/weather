@@ -6,7 +6,7 @@ import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface ApiWeather {
+public interface WeatherApiService {
 
     @GET("weather?units=metric")
     Single<CurrentWeather> getWeatherByCityId(@Query("id") int cityId);

@@ -1,8 +1,11 @@
-package com.example.weather.data.remote.api;
+package com.example.weather.di;
+
+import com.example.weather.data.remote.api.WeatherApiService;
 
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
 
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -12,17 +15,18 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiWeatherClient {
+public class WeatherApiServiceProvider implements Provider<WeatherApiService> {
 
     private static final long TIMEOUT = 60;
     private static final String API_KEY = "6cbf06dd7b501ba9387c6a99a826aae6";
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
     @Inject
-    public ApiWeatherClient() {
+    public WeatherApiServiceProvider() {
     }
 
-    public ApiWeather getClient() {
+    @Override
+    public WeatherApiService get() {
         Interceptor requestInterceptor = chain -> {
             HttpUrl url = chain.request()
                     .url()
@@ -49,6 +53,6 @@ public class ApiWeatherClient {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ApiWeather.class);
+                .create(WeatherApiService.class);
     }
 }

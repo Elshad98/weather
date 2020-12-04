@@ -1,6 +1,6 @@
 package com.example.weather.di;
 
-import com.example.weather.data.remote.api.ApiWeatherClient;
+import com.example.weather.data.remote.api.WeatherApiService;
 import com.example.weather.data.repository.CityRepository;
 import com.example.weather.data.repository.WeatherRepository;
 
@@ -11,6 +11,7 @@ public class AppModule extends Module {
     public AppModule() {
         bind(WeatherRepository.class).singleton();
         bind(CityRepository.class).singleton();
-        bind(ApiWeatherClient.class).singleton();
+        bind(WeatherApiService.class).toProvider(WeatherApiServiceProvider.class)
+                .providesSingleton();
     }
 }

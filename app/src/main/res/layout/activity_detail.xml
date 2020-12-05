@@ -49,9 +49,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="@dimen/layout_margin_left"
                         android:layout_marginTop="40dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="@dimen/layout_margin_right"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -194,7 +194,7 @@
                         android:id="@+id/horizontalScroll"
                         android:layout_width="match_parent"
                         android:layout_height="76dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="@dimen/layout_margin_left"
                         android:layout_marginTop="50dp"
                         android:layout_marginBottom="26dp"
                         android:scrollbars="none"

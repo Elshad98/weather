@@ -1,6 +1,5 @@
 package com.example.weather.data.repository;
 
-import com.example.weather.App;
 import com.example.weather.data.local.AppDatabase;
 import com.example.weather.data.local.dao.CityDao;
 import com.example.weather.data.local.entity.CityEntity;
@@ -13,12 +12,11 @@ import io.reactivex.Flowable;
 
 public class CityRepository {
 
-    private CityDao cityDao;
+    private final CityDao cityDao;
 
     @Inject
-    public CityRepository() {
-        AppDatabase database = AppDatabase.getInstance(App.instance());
-        cityDao = database.cityDao();
+    public CityRepository(CityDao cityDao) {
+        this.cityDao = cityDao;
     }
 
     public Flowable<List<CityEntity>> getAllCities() {

@@ -28,7 +28,7 @@ public class App extends Application {
     private void openAppScope() {
         appScope = Toothpick.openScope(this);
         appScope.installModules(
-                new AppModule()
+                new AppModule(this)
         );
     }
 

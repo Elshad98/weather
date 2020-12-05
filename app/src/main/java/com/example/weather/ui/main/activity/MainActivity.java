@@ -43,17 +43,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         viewModel = viewModel(CityListViewModel.class, App.scope());
-        viewModel.getCities().subscribe(this::onSuccess, this::onError);
+        viewModel.loadFromDb();
+        viewModel.getCities().observe(this, this::onSuccess);
         binding.ivAdd.setOnClickListener(this);
     }
 
     private void onSuccess(List<CityEntity> cities) {
         cityEntityList = cities;
         adapter.setCities(cities);
-    }
-
-    private void onError(Throwable throwable) {
-        ToastUtil.showLong("Error: " + throwable.getMessage());
     }
 
     public void onClick(View view) {

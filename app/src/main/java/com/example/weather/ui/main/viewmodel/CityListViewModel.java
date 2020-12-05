@@ -1,5 +1,7 @@
 package com.example.weather.ui.main.viewmodel;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.weather.data.local.entity.CityEntity;
 import com.example.weather.data.repository.CityRepository;
 import com.example.weather.ui.base.BaseViewModel;
@@ -8,23 +10,21 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Flowable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
 public class CityListViewModel extends BaseViewModel {
 
-    private CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
     @Inject
     public CityListViewModel(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
     }
 
-    public Flowable<List<CityEntity>> getCities() {
-        return cityRepository.getAllCities()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
+    public void loadFromDb() {
+        cityRepository.getAllCities();
+    }
+
+    public LiveData<List<CityEntity>> getCities() {
+        return cityRepository.getCities();
     }
 
     public void deleteCity(CityEntity cityEntity) {

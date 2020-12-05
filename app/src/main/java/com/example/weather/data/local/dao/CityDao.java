@@ -18,9 +18,9 @@ public interface CityDao {
     Flowable<List<CityEntity>> getAllCities();
 
     @Query("SELECT * FROM cities WHERE id = :id")
-    List<CityEntity> getById(int id);
+    CityEntity getById(int id);
 
-    @Query("SELECT * FROM Cities LIMIT 1")
+    @Query("SELECT * FROM cities LIMIT 1")
     List<CityEntity> getCity();
 
     @Delete
@@ -28,4 +28,7 @@ public interface CityDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertCity(CityEntity city);
+
+    @Query("SELECT * FROM cities WHERE name = :cityName")
+    CityEntity getCityByName(String cityName);
 }

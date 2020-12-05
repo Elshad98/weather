@@ -11,9 +11,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.weather.data.local.dao.CityDao;
 import com.example.weather.data.local.entity.CityEntity;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import io.reactivex.Completable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -24,9 +21,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;
     private static final String DATABASE_NAME = "city_database";
-
-    public static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(4);
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {

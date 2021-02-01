@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_city_relative_layout_height">95dp</dimen>
+    <dimen name="list_item_city_constraint_layout_margin_start">0dp</dimen>
+    <dimen name="list_item_city_constraint_layout_margin_end">0dp</dimen>
+    <dimen name="list_item_city_constraint_layout_margin_bottom">21dp</dimen>
+    <dimen name="list_item_city_constraint_layout_height">99dp</dimen>
+    <dimen name="list_item_city_title_text_size">@dimen/title_text_size</dimen>
+    <dimen name="list_item_city_title_layout_margin_end">100dp</dimen>
+    <dimen name="list_item_city_title_layout_constraint_horizontal_bias">0.05</dimen>
+    <dimen name="list_item_city_icon_layout_width">32dp</dimen>
+    <dimen name="list_item_city_icon_layout_height">30dp</dimen>
+    <dimen name="list_item_city_icon_layout_margin_bottom">24dp</dimen>
+    <dimen name="list_item_city_icon_layout_constraint_horizontal_bias">0.8</dimen>
+</resources>

@@ -6,48 +6,48 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="95dp">
+        android:layout_height="@dimen/list_item_city_relative_layout_height">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="99dp"
+            android:layout_height="@dimen/list_item_city_constraint_layout_height"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="21dp"
+            android:layout_marginStart="@dimen/list_item_city_constraint_layout_margin_start"
+            android:layout_marginEnd="@dimen/list_item_city_constraint_layout_margin_end"
+            android:layout_marginBottom="@dimen/list_item_city_constraint_layout_margin_bottom"
             android:background="@drawable/round_border">
 
             <TextView
                 android:id="@+id/tvCityName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="100dp"
+                android:layout_marginEnd="@dimen/list_item_city_title_layout_margin_end"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/title_text_size"
+                android:textSize="@dimen/list_item_city_title_text_size"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintHorizontal_bias="@dimen/list_item_city_title_layout_constraint_horizontal_bias"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivDelete"
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="24dp"
+                android:layout_width="@dimen/list_item_city_icon_layout_width"
+                android:layout_height="@dimen/list_item_city_icon_layout_height"
+                android:layout_marginBottom="@dimen/list_item_city_icon_layout_margin_bottom"
+                android:contentDescription="@string/delete_icon"
                 android:src="@drawable/delete_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
-                app:layout_constraintStart_toEndOf="@+id/tvCityName"
-                android:contentDescription="@string/delete_icon" />
+                app:layout_constraintHorizontal_bias="@dimen/list_item_city_icon_layout_constraint_horizontal_bias"
+                app:layout_constraintStart_toEndOf="@+id/tvCityName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </layout>

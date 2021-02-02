@@ -15,9 +15,9 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/layout_margin_left"
-            android:layout_marginTop="@dimen/layout_margin_top"
-            android:layout_marginRight="@dimen/layout_margin_left"
+            android:layout_marginStart="@dimen/activity_main_recycler_view_margin_left"
+            android:layout_marginTop="@dimen/activity_main_recycler_view_margin_top"
+            android:layout_marginEnd="@dimen/activity_main_recycler_view_margin_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -27,16 +27,16 @@
 
         <ImageView
             android:id="@+id/ivAdd"
-            android:layout_width="@dimen/plus_icon_width"
-            android:layout_height="@dimen/plus_icon_height"
-            android:layout_marginEnd="22dp"
-            android:layout_marginBottom="28dp"
+            android:layout_width="@dimen/activity_main_icon_layout_width"
+            android:layout_height="@dimen/activity_main_icon_layout_height"
+            android:layout_marginEnd="@dimen/activity_main_icon_layout_margin_end"
+            android:layout_marginBottom="@dimen/activity_main_icon_layout_margin_bottom"
+            android:contentDescription="@string/plus_icon"
             android:src="@drawable/plus_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="@string/plus_icon" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

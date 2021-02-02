@@ -10,8 +10,6 @@
     <dimen name="weather_icon_height">160dp</dimen>
     <dimen name="location_icon_width">25dp</dimen>
     <dimen name="location_icon_height">34dp</dimen>
-    <dimen name="plus_icon_width">85dp</dimen>
-    <dimen name="plus_icon_height">66dp</dimen>
     <dimen name="detail_text_margin_top">28dp</dimen>
     <dimen name="item_weather_layout_width">110dp</dimen>
     <dimen name="item_weather_layout_height">75dp</dimen>

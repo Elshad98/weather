@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_details_error_title_text_size">30sp</dimen>
+    <dimen name="activity_details_list_item_layout_width">110dp</dimen>
+    <dimen name="activity_details_list_item_layout_height">75dp</dimen>
+    <dimen name="activity_details_list_item_layout_margin_end">12dp</dimen>
+    <dimen name="activity_details_list_item_title_text_size">18sp</dimen>
+    <dimen name="activity_details_horizontal_scroll_view_layout_height">76dp</dimen>
+    <dimen name="activity_details_horizontal_scroll_view_layout_margin_start">16dp</dimen>
+    <dimen name="activity_details_horizontal_scroll_view_layout_margin_top">50dp</dimen>
+    <dimen name="activity_details_horizontal_scroll_view_layout_margin_bottom">26dp</dimen>
+    <dimen name="activity_details_temp_text_size">40sp</dimen>
+    <dimen name="activity_details_temp_text_layout_margin_top">28dp</dimen>
+    <dimen name="activity_details_description_text_size">20sp</dimen>
+    <dimen name="activity_details_description_text_layout_margin_top">28dp</dimen>
+    <dimen name="activity_details_arrow_icon_layout_width">22dp</dimen>
+    <dimen name="activity_details_arrow_icon_layout_height">30dp</dimen>
+    <dimen name="activity_details_arrow_icon_layout_margin_start">20dp</dimen>
+    <dimen name="activity_details_arrow_icon_layout_margin_bottom">42dp</dimen>
+    <dimen name="activity_details_temp_info_layout_margin_start">16dp</dimen>
+    <dimen name="activity_details_temp_info_layout_margin_bottom">42dp</dimen>
+    <dimen name="activity_details_temp_info_padding_bottom">3dp</dimen>
+    <dimen name="activity_details_temp_info_text_size">18sp</dimen>
+    <dimen name="activity_details_weather_icon_layout_width">160dp</dimen>
+    <dimen name="activity_details_weather_icon_layout_height">160dp</dimen>
+    <dimen name="activity_details_location_icon_layout_width">25dp</dimen>
+    <dimen name="activity_details_location_icon_layout_height">34dp</dimen>
+    <dimen name="activity_details_location_icon_layout_margin_end">8dp</dimen>
+    <dimen name="activity_details_date_text_size">18sp</dimen>
+</resources>

@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:text="@string/connection_problem"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/network_state_title_text_size"
+                android:textSize="@dimen/activity_details_error_title_text_size"
                 android:textStyle="normal"
                 android:visibility="gone" />
 
@@ -62,9 +62,9 @@
 
                             <ImageView
                                 android:id="@+id/location"
-                                android:layout_width="@dimen/location_icon_width"
-                                android:layout_height="@dimen/location_icon_height"
-                                android:layout_marginEnd="8dp"
+                                android:layout_width="@dimen/activity_details_location_icon_layout_width"
+                                android:layout_height="@dimen/activity_details_location_icon_layout_height"
+                                android:layout_marginEnd="@dimen/activity_details_location_icon_layout_margin_end"
                                 android:contentDescription="@string/location_icon"
                                 android:src="@drawable/location_icon"
                                 android:visibility="invisible" />
@@ -88,7 +88,7 @@
                             android:layout_marginBottom="48dp"
                             android:fontFamily="@font/roboto_regular"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/weather_detail_text_size"
+                            android:textSize="@dimen/activity_details_date_text_size"
                             android:textStyle="normal" />
 
                         <LinearLayout
@@ -99,8 +99,8 @@
 
                             <ImageView
                                 android:id="@+id/icon"
-                                android:layout_width="@dimen/weather_icon_width"
-                                android:layout_height="@dimen/weather_icon_height"
+                                android:layout_width="@dimen/activity_details_weather_icon_layout_width"
+                                android:layout_height="@dimen/activity_details_weather_icon_layout_height"
                                 android:layout_gravity="center"
                                 android:contentDescription="@string/weather_icon" />
 
@@ -117,9 +117,9 @@
 
                                     <ImageView
                                         android:id="@+id/arrowTop"
-                                        android:layout_width="@dimen/arrow_icon_width"
-                                        android:layout_height="@dimen/arrow_icon_height"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_width="@dimen/activity_details_arrow_icon_layout_width"
+                                        android:layout_height="@dimen/activity_details_arrow_icon_layout_height"
+                                        android:layout_marginStart="@dimen/activity_details_arrow_icon_layout_margin_start"
                                         android:layout_marginBottom="12dp"
                                         android:contentDescription="@string/arrow_top_icon"
                                         android:src="@drawable/arrow_top_icon"
@@ -129,12 +129,12 @@
                                         android:id="@+id/tempMax"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
+                                        android:layout_marginStart="@dimen/activity_details_temp_info_layout_margin_start"
                                         android:layout_marginBottom="16dp"
                                         android:fontFamily="@font/roboto_regular"
-                                        android:paddingBottom="3dp"
+                                        android:paddingBottom="@dimen/activity_details_temp_info_padding_bottom"
                                         android:textColor="@color/colorPrimaryDark"
-                                        android:textSize="@dimen/weather_detail_text_size"
+                                        android:textSize="@dimen/activity_details_temp_info_text_size"
                                         android:textStyle="normal" />
                                 </LinearLayout>
 
@@ -145,10 +145,10 @@
 
                                     <ImageView
                                         android:id="@+id/arrowDown"
-                                        android:layout_width="@dimen/arrow_icon_width"
-                                        android:layout_height="@dimen/arrow_icon_height"
-                                        android:layout_marginStart="20dp"
-                                        android:layout_marginBottom="42dp"
+                                        android:layout_width="@dimen/activity_details_arrow_icon_layout_width"
+                                        android:layout_height="@dimen/activity_details_arrow_icon_layout_height"
+                                        android:layout_marginStart="@dimen/activity_details_arrow_icon_layout_margin_start"
+                                        android:layout_marginBottom="@dimen/activity_details_arrow_icon_layout_margin_bottom"
                                         android:contentDescription="@string/arrow_down_icon"
                                         android:src="@drawable/arrow_down_icon"
                                         android:visibility="invisible" />
@@ -157,12 +157,12 @@
                                         android:id="@+id/tempMin"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginBottom="42dp"
+                                        android:layout_marginStart="@dimen/activity_details_temp_info_layout_margin_start"
+                                        android:layout_marginBottom="@dimen/activity_details_temp_info_layout_margin_bottom"
                                         android:fontFamily="@font/roboto_regular"
-                                        android:paddingBottom="3dp"
+                                        android:paddingBottom="@dimen/activity_details_temp_info_padding_bottom"
                                         android:textColor="@color/colorPrimary"
-                                        android:textSize="@dimen/weather_detail_text_size"
+                                        android:textSize="@dimen/activity_details_temp_info_text_size"
                                         android:textStyle="normal" />
                                 </LinearLayout>
                             </LinearLayout>
@@ -173,9 +173,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/detail_text_margin_top"
+                            android:layout_marginTop="@dimen/activity_details_description_text_layout_margin_top"
                             android:fontFamily="@font/roboto_regular"
-                            android:textSize="@dimen/weather_description_text"
+                            android:textSize="@dimen/activity_details_description_text_size"
                             android:textStyle="normal" />
 
                         <TextView
@@ -183,20 +183,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/detail_text_margin_top"
+                            android:layout_marginTop="@dimen/activity_details_temp_text_layout_margin_top"
                             android:fontFamily="@font/roboto_regular"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/temperature_text"
+                            android:textSize="@dimen/activity_details_temp_text_size"
                             android:textStyle="normal" />
                     </LinearLayout>
 
                     <HorizontalScrollView
                         android:id="@+id/horizontalScroll"
                         android:layout_width="match_parent"
-                        android:layout_height="76dp"
-                        android:layout_marginStart="@dimen/layout_margin_left"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginBottom="26dp"
+                        android:layout_height="@dimen/activity_details_horizontal_scroll_view_layout_height"
+                        android:layout_marginStart="@dimen/activity_details_horizontal_scroll_view_layout_margin_start"
+                        android:layout_marginTop="@dimen/activity_details_horizontal_scroll_view_layout_margin_top"
+                        android:layout_marginBottom="@dimen/activity_details_horizontal_scroll_view_layout_margin_bottom"
                         android:scrollbars="none"
                         android:visibility="invisible">
 
@@ -206,9 +206,9 @@
                             android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="@dimen/item_weather_layout_width"
-                                android:layout_height="@dimen/item_weather_layout_height"
-                                android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
+                                android:layout_width="@dimen/activity_details_list_item_layout_width"
+                                android:layout_height="@dimen/activity_details_list_item_layout_height"
+                                android:layout_marginEnd="@dimen/activity_details_list_item_layout_margin_end"
                                 android:background="@drawable/round_border"
                                 android:orientation="vertical">
 
@@ -226,14 +226,14 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_regular"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/weather_detail_text_size"
+                                    android:textSize="@dimen/activity_details_list_item_title_text_size"
                                     android:textStyle="normal" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="@dimen/item_weather_layout_width"
-                                android:layout_height="@dimen/item_weather_layout_height"
-                                android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
+                                android:layout_width="@dimen/activity_details_list_item_layout_width"
+                                android:layout_height="@dimen/activity_details_list_item_layout_height"
+                                android:layout_marginEnd="@dimen/activity_details_list_item_layout_margin_end"
                                 android:background="@drawable/round_border"
                                 android:orientation="vertical">
 
@@ -251,14 +251,14 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_regular"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/weather_detail_text_size"
+                                    android:textSize="@dimen/activity_details_list_item_title_text_size"
                                     android:textStyle="normal" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="@dimen/item_weather_layout_width"
-                                android:layout_height="@dimen/item_weather_layout_height"
-                                android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
+                                android:layout_width="@dimen/activity_details_list_item_layout_width"
+                                android:layout_height="@dimen/activity_details_list_item_layout_height"
+                                android:layout_marginEnd="@dimen/activity_details_list_item_layout_margin_end"
                                 android:background="@drawable/round_border"
                                 android:orientation="vertical">
 
@@ -276,14 +276,14 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_regular"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/weather_detail_text_size"
+                                    android:textSize="@dimen/activity_details_list_item_title_text_size"
                                     android:textStyle="normal" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="@dimen/item_weather_layout_width"
-                                android:layout_height="@dimen/item_weather_layout_height"
-                                android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
+                                android:layout_width="@dimen/activity_details_list_item_layout_width"
+                                android:layout_height="@dimen/activity_details_list_item_layout_height"
+                                android:layout_marginEnd="@dimen/activity_details_list_item_layout_margin_end"
                                 android:background="@drawable/round_border"
                                 android:orientation="vertical">
 
@@ -301,14 +301,14 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_regular"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/weather_detail_text_size"
+                                    android:textSize="@dimen/activity_details_list_item_title_text_size"
                                     android:textStyle="normal" />
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="@dimen/item_weather_layout_width"
-                                android:layout_height="@dimen/item_weather_layout_height"
-                                android:layout_marginEnd="@dimen/item_weather_layout_margin_end"
+                                android:layout_width="@dimen/activity_details_list_item_layout_width"
+                                android:layout_height="@dimen/activity_details_list_item_layout_height"
+                                android:layout_marginEnd="@dimen/activity_details_list_item_layout_margin_end"
                                 android:background="@drawable/round_border"
                                 android:orientation="vertical">
 
@@ -326,7 +326,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/roboto_regular"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/weather_detail_text_size"
+                                    android:textSize="@dimen/activity_details_list_item_title_text_size"
                                     android:textStyle="normal" />
                             </LinearLayout>
                         </LinearLayout>
